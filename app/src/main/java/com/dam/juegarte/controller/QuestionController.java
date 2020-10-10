@@ -17,6 +17,7 @@ import com.dam.juegarte.Question;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchQuestion;
 import com.dam.juegarte.stores.GameModesStore;
+import com.dam.juegarte.stores.ScratchQuestionsStore;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -43,7 +44,7 @@ public class QuestionController {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("onResponse", response);
+                //        Log.d("onResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String status = jsonObject.getString("status");
@@ -52,7 +53,7 @@ public class QuestionController {
 
                             if (status.equals("Success")) {
                                 JSONArray jsonArray = jsonObject.getJSONArray("scratchQuestions");
-                                ArrayList<Question> scratchQuestions = new ArrayList<>();
+                                ArrayList<ScratchQuestion> scratchQuestions = new ArrayList<>();
 
 
                                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -72,14 +73,15 @@ public class QuestionController {
 
 
 
-                                    Question question = new ScratchQuestion(questionText, questionInformation, questionImage, option1, option2, option3, option4, answer);
+                                    ScratchQuestion question = new ScratchQuestion(questionText, questionInformation, questionImage, option1, option2, option3, option4, answer);
                                     scratchQuestions.add(question);
 
                                 }
 
-                                Log.d("Scratch", scratchQuestions.toString());
-                               // GameModesStore gameModesStore = new GameModesStore(context);
-                               // gameModesStore.storeGameModes(gameModes);
+                             //   Log.d("Scratch", scratchQuestions.toString());
+
+                                ScratchQuestionsStore scratchQuestionsStore = new ScratchQuestionsStore(context);
+                                scratchQuestionsStore.storeScratchQuestions(scratchQuestions);
 
 
 

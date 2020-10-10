@@ -59,6 +59,7 @@ public class ScratchQuestion extends Question {
     @Override
     public String toString() {
         return "ScratchQuestion{" +
+                 super.toString() + '\'' +
                 "option1='" + option1 + '\'' +
                 ", option2='" + option2 + '\'' +
                 ", option3='" + option3 + '\'' +

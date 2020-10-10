@@ -41,7 +41,7 @@ public class GameController {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d("onResponse", response);
+                   //     Log.d("onResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String status = jsonObject.getString("status");
