@@ -1,19 +1,32 @@
 package com.dam.juegarte;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
+import com.dam.juegarte.adapters.MainViewPagerAdapter;
 import com.dam.juegarte.controller.GameController;
+import com.dam.juegarte.fragments.AchievementsFragment;
+import com.dam.juegarte.fragments.GamesFragment;
+import com.dam.juegarte.fragments.SettingsFragment;
+import com.dam.juegarte.fragments.UserFragment;
 import com.dam.juegarte.stores.GameModesStore;
 import com.dam.juegarte.stores.UserSessionStore;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
     UserSessionStore userStore;
@@ -21,11 +34,33 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     GameController gameController;
     private Gson gson;
 
+    private ViewPager vPager;
+    private TabLayout tlTabs;
+    private TabItem tiGames;
+    private TabItem tiAchievements;
+    private TabItem tiSettings;
+    private TabItem tiUser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        gson = new Gson();
+
+        tlTabs = findViewById(R.id.tl_tabs);
+
+
+
+        vPager = findViewById(R.id.vp_pager);
+
+        tiGames = findViewById(R.id.ti_games);
+        tiAchievements = findViewById(R.id.ti_achievements);
+        tiSettings = findViewById(R.id.ti_settings);
+        tiUser = findViewById(R.id.ti_user);
+
+        setupTabIcons();
+        setupViewPager();
+
+        /*gson = new Gson();
         userStore = new UserSessionStore(this);
         gameModesStore = new GameModesStore(this);
 
@@ -34,7 +69,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
 
         gameController = new GameController(MainMenu.this);
-        gameController.loadGameModes();
+        gameController.loadGameModes();*/
 
 /*
         Intent intent = getIntent();
@@ -53,6 +88,27 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         setSupportActionBar(toolbar);
 
 
+    }
+
+    private void setupViewPager() {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+
+        fragments.add(GamesFragment.newInstance());
+        fragments.add(AchievementsFragment.newInstance());
+        fragments.add(SettingsFragment.newInstance());
+        fragments.add(UserFragment.newInstance());
+
+        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragments);
+
+        vPager.setAdapter(mainViewPagerAdapter);
+
+    }
+
+    private void setupTabIcons() {
+        tlTabs.getTabAt(0).setIcon(R.drawable.ic_dados);
+        tlTabs.getTabAt(1).setIcon(R.drawable.ic_achievements);
+        tlTabs.getTabAt(2).setIcon(R.drawable.ic_settings);
+        tlTabs.getTabAt(3).setIcon(R.drawable.ic_user);
     }
 
     //para el menu
@@ -87,7 +143,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
+        /*switch (view.getId()) {
             case R.id.btn_profile:
                 openProfile();
                 break;
@@ -95,7 +151,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 selectGameMenu();
             default:
                 break;
-        }
+        }*/
 
     }
 
