@@ -37,4 +37,14 @@ public class Question {
     public void setQuestionImage(String questionImage) {
         this.questionImage = questionImage;
     }
+
+
+    @Override
+    public String toString() {
+        return
+                "questionText='" + questionText + '\'' +
+                ", questionInformation='" + questionInformation + '\'' +
+                ", questionImage='" + questionImage + '\''
+                ;
+    }
 }
