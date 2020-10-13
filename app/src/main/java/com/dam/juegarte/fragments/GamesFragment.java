@@ -51,7 +51,7 @@ public class GamesFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_games, container, false);
 
-        gameModesStore = new GameModesStore(activity);
+        gameModesStore = new GameModesStore(getActivity().getApplicationContext());
         gameModes = gameModesStore.getGameModes();
         // Log.d("GM", gameModes.toString());
 
