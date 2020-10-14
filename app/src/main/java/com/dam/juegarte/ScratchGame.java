@@ -34,8 +34,6 @@ public class ScratchGame extends AppCompatActivity{
         Log.d("Scratch", scratchQuestionsPool.toString());
 
 
-
-
      //   fragmentScratch = new ScratchFragment();
      //   getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, fragmentScratch).commit();
     }

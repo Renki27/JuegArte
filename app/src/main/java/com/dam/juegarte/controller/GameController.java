@@ -30,6 +30,8 @@ public class GameController {
     public GameController(Context context) {
         this.context = context;
     }
+
+
     public void loadGameModes() {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);

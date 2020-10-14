@@ -57,9 +57,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         tiSettings = findViewById(R.id.ti_settings);
         tiUser = findViewById(R.id.ti_user);
 
-        setupViewPager();
         setupTabIcons();
-
+        setupViewPager();
 
         /*gson = new Gson();
         userStore = new UserSessionStore(this);
@@ -93,17 +92,15 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     private void setupViewPager() {
         ArrayList<Fragment> fragments = new ArrayList<>();
-        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragments);
 
         fragments.add(GamesFragment.newInstance());
         fragments.add(AchievementsFragment.newInstance());
         fragments.add(SettingsFragment.newInstance());
         fragments.add(UserFragment.newInstance());
 
-
+        MainViewPagerAdapter mainViewPagerAdapter = new MainViewPagerAdapter(getSupportFragmentManager(), fragments);
 
         vPager.setAdapter(mainViewPagerAdapter);
-        tlTabs.setupWithViewPager(vPager);
 
     }
 
