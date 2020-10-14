@@ -16,9 +16,9 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
     GameModesStore gameModesStore;
     ArrayList<GameMode> gameModes;
 
-    Button gameMode1;
-    Button gameMode2;
-    Button gameMode3;
+     Button gameMode1;
+       Button gameMode2;
+     Button gameMode3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,9 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
         // Log.d("GM", gameModes.toString());
 
 
-        gameMode1 = findViewById(R.id.btn_game_1);
-        gameMode2 = findViewById(R.id.btn_game_2);
-        gameMode3 = findViewById(R.id.btn_game_3);
+         gameMode1 = findViewById(R.id.btn_game_1);
+         gameMode2 = findViewById(R.id.btn_game_2);
+         gameMode3 = findViewById(R.id.btn_game_3);
 
         setButtonsNames();
 
@@ -57,8 +57,8 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
 
 
     public void setButtonsNames() {
-        gameMode1.setText(gameModes.get(0).getGameMode());
-        gameMode2.setText(gameModes.get(1).getGameMode());
-        gameMode3.setText(gameModes.get(2).getGameMode());
+          gameMode1.setText(gameModes.get(0).getGameMode());
+          gameMode2.setText(gameModes.get(1).getGameMode());
+          gameMode3.setText(gameModes.get(2).getGameMode());
     }
 }
