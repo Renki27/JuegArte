@@ -1,11 +1,18 @@
 package com.dam.juegarte;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class ScratchQuestion extends Question {
     private String option1;
     private String option2;
     private String option3;
     private String option4;
     private String answer;
+
+
+    public ScratchQuestion() {
+    }
 
     public ScratchQuestion(String questionText, String questionInformation, String questionImage, String option1, String option2, String option3, String option4, String answer) {
         super(questionText, questionInformation, questionImage);
