@@ -54,9 +54,9 @@ public class ScratchFragment extends Fragment  implements ScratchListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-     if(getArguments() != null) {
-         scratchQuestionsPool = Parcels.unwrap(getArguments().getParcelable("Questions"));
-     }
+        if(getArguments() != null) {
+            scratchQuestionsPool = Parcels.unwrap(getArguments().getParcelable("Questions"));
+        }
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_scratch, container, false);
@@ -78,7 +78,7 @@ public class ScratchFragment extends Fragment  implements ScratchListener {
 
 
 
-       // Log.d("Scratch", scratchQuestionsPool.toString());
+        // Log.d("Scratch", scratchQuestionsPool.toString());
 
 
 
@@ -131,7 +131,7 @@ public class ScratchFragment extends Fragment  implements ScratchListener {
             option3.setText(question.getOption3());
             option4.setText(question.getOption4());
             loadQuestionImage(scratchQuestionsPool.get(counter));
-         //   loadImage(Glide.with(this), IMAGES_URL + question.getQuestionImage(), questionImage);
+            //   loadImage(Glide.with(this), IMAGES_URL + question.getQuestionImage(), questionImage);
             onScratchProgress(scratchCardLayout, 0);
 
 
@@ -165,21 +165,21 @@ public class ScratchFragment extends Fragment  implements ScratchListener {
         percentage.setText("% " +100);
         score.setText("Score: " + 0);
         scratchCardLayout.setScratchEnabled(false);
-      //  scratchCardLayout.revealScratch();
+        //  scratchCardLayout.revealScratch();
 
     }
 
     //Scracth progress (NOTE: not guaranteed to be exact percent. consider it like atleast this much percent has been scratched)
     @Override
     public void onScratchProgress(ScratchCardLayout scratchCardLayout, int i) {
-    if (i!= 100) {
-     //   percentage.setText("% " + i);
-        points = (100 - i);
-      //  score.setText("Score: " + points);
+        if (i!= 100) {
+            //   percentage.setText("% " + i);
+            points = (100 - i);
+            //  score.setText("Score: " + points);
 
-    } else {
-        onScratchComplete();
-    }
+        } else {
+            onScratchComplete();
+        }
 
 
     }

@@ -62,4 +62,16 @@ public class ScratchQuestion extends Question {
     public void setAnswer(String answer) {
         this.answer = answer;
     }
+
+    @Override
+    public String toString() {
+        return "ScratchQuestion{" +
+                super.toString() + '\'' +
+                "option1='" + option1 + '\'' +
+                ", option2='" + option2 + '\'' +
+                ", option3='" + option3 + '\'' +
+                ", option4='" + option4 + '\'' +
+                ", answer='" + answer + '\'' +
+                '}';
+    }
 }

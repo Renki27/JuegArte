@@ -43,14 +43,14 @@ public class ScratchGame extends AppCompatActivity{
         fragmentScratch.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_scratch, fragmentScratch).commit();
 
-    //    Log.d("Scratch", scratchQuestionsPool.toString());
+        //    Log.d("Scratch", scratchQuestionsPool.toString());
 
 
 
 
-    //
-    //   iQuestionsPool = (IQuestionsPool) fragmentScratch;
-    //    getSupportFragmentManager().beginTransaction().add(R.id.fragment_scratch, fragmentScratch).commit();
+        //
+        //   iQuestionsPool = (IQuestionsPool) fragmentScratch;
+        //    getSupportFragmentManager().beginTransaction().add(R.id.fragment_scratch, fragmentScratch).commit();
     }
 
     public interface IQuestionsPool {
