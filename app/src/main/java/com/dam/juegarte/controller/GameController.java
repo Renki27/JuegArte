@@ -30,6 +30,8 @@ public class GameController {
     public GameController(Context context) {
         this.context = context;
     }
+
+
     public void loadGameModes() {
 
         RequestQueue requestQueue = Volley.newRequestQueue(context);
@@ -39,7 +41,7 @@ public class GameController {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                   //     Log.d("onResponse", response);
+                        Log.d("onResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String status = jsonObject.getString("status");
@@ -60,15 +62,12 @@ public class GameController {
                                     String instructions = modes.getString("instructions").trim();
                                     int questionTimer = Integer.parseInt(modes.getString("question_timer_seconds").trim());
 
-
                                     GameMode mode = new GameMode(idGame, gameMode, instructions, questionTimer);
                                     gameModes.add(mode);
 
                                 }
                                 GameModesStore gameModesStore = new GameModesStore(context);
                                 gameModesStore.storeGameModes(gameModes);
-
-
 
                             } else {
                                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
