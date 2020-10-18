@@ -5,9 +5,9 @@ import org.parceler.Parcel;
 @Parcel
 public class Question {
 
-    private String questionText;
-    private String questionInformation;
-    private String questionImage;
+    String questionText;
+    String questionInformation;
+    String questionImage;
 
     public Question() {
     }
