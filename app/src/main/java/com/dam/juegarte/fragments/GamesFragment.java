@@ -18,7 +18,7 @@ import com.dam.juegarte.stores.GameModesStore;
 
 import java.util.ArrayList;
 
-public class GamesFragment extends Fragment implements View.OnClickListener{
+public class GamesFragment extends Fragment{
 
     private AppCompatActivity activity;
 
@@ -62,23 +62,16 @@ public class GamesFragment extends Fragment implements View.OnClickListener{
 
         setButtonsNames();
 
+
+        gameMode3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), ScratchGame.class);
+                startActivity(intent);
+            }
+        });
+
         return view;
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_game_3:
-                startScratchGame();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private void startScratchGame() {
-        Intent intent = new Intent(activity, ScratchGame.class);
-        startActivity(intent);
     }
 
 

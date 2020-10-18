@@ -1,11 +1,16 @@
 package com.dam.juegarte;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Question {
 
     private String questionText;
     private String questionInformation;
     private String questionImage;
 
+    public Question() {
+    }
 
     public Question(String questionText, String questionInformation, String questionImage) {
         this.questionText = questionText;

@@ -61,7 +61,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         setupTabIcons();
 
 
-        /*gson = new Gson();
+        gson = new Gson();
         userStore = new UserSessionStore(this);
         gameModesStore = new GameModesStore(this);
 
@@ -138,7 +138,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private void logout() {
         userStore.setUserLoggedIn(false);
         userStore.clearUserData();
-        gameModesStore.clearGameModes();
+        //  gameModesStore.clearGameModes();
         //   Intent intent = new Intent(this, Sign_in.class);
         //   startActivity(intent);
         //  finish();
@@ -169,6 +169,11 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     }
 
+
+    // public method to be accessed by host activity.
+    public void sendGameModes(final GameMode gameModes) {
+
+    }
 
 /*
     @Override
