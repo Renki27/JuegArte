@@ -32,9 +32,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="question">Question:</string>
+
     <string name="question_info">Question information</string>
     <string name="exit">Exit</string>
     <string name="game_exit_confirmation">Any proggress won\'t be saved, do you want to  leave?</string>
     <string name="loading">Loading</string>
     <string name="saving_data">Saving your data!</string>
+
+
+    <string name="true_btn">True</string>
+    <string name="false_btn">False</string>
+    <string name="question_information">Question information</string>
+    <string name="correct">CORRECT</string>
+    <string name="incorrect">INCORRECT</string>
+
 </resources>

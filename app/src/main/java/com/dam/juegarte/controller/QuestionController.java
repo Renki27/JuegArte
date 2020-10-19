@@ -16,8 +16,10 @@ import com.dam.juegarte.GameMode;
 import com.dam.juegarte.Question;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchQuestion;
+import com.dam.juegarte.TrueFalseQuestion;
 import com.dam.juegarte.stores.GameModesStore;
 import com.dam.juegarte.stores.ScratchQuestionsStore;
+import com.dam.juegarte.stores.TrueFalseQuestionStore;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -117,4 +119,81 @@ public class QuestionController {
 
 
     }
+
+    public void loadTrueFalseQuestions() {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+
+        StringRequest request = new StringRequest(Request.Method.GET, BASE_URL + "/loadQuestions.php?request=loadTFQue",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //Log.d("onResponse", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+
+                            if (status.equals("Success")) {
+                                JSONArray jsonArray = jsonObject.getJSONArray("trueFalseQuestions");
+                                ArrayList<TrueFalseQuestion> trueFalseQuestions = new ArrayList<>();
+
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject questions = jsonArray.getJSONObject(i);
+
+
+
+                                    String questionText = questions.getString("question_text").trim();
+                                    String questionInformation = questions.getString("question_info").trim();
+                                    String questionImage = questions.getString("question_img").trim();
+                                    String tf_answer = questions.getString("tf_answer").trim();
+
+
+
+                                    TrueFalseQuestion question = new TrueFalseQuestion(questionText, questionInformation, questionImage, tf_answer);
+                                    trueFalseQuestions.add(question);
+
+                                }
+
+                                Log.d("true", trueFalseQuestions.toString());
+
+                                TrueFalseQuestionStore trueFalseQuestionStore = new TrueFalseQuestionStore(context);
+                                trueFalseQuestionStore.storeTrueFalseQuestions(trueFalseQuestions);
+
+
+
+                            } else {
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, R.string.sign_in_error, Toast.LENGTH_SHORT).show();
+
+                        NetworkResponse response = error.networkResponse;
+                        String errorMsg = "";
+                        if (response != null && response.data != null) {
+                            String errorString = new String(response.data);
+                            Log.i("log error", errorString);
+                        }
+
+                    }
+                });
+        // Add the realibility on the connection.
+        request.setRetryPolicy(new DefaultRetryPolicy(10000, 1, 1.0f));
+        request.setShouldCache(false);
+        requestQueue.add(request);
+
+
+    }
+
 }

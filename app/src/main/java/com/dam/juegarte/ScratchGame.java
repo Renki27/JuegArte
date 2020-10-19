@@ -1,11 +1,9 @@
 package com.dam.juegarte;
 
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.dam.juegarte.controller.QuestionController;
@@ -21,7 +19,7 @@ public class ScratchGame extends AppCompatActivity {
 
     FragmentTransaction transaction;
     ScratchFragment fragmentScratch;
-    QuestionController questionController;
+
     ScratchQuestionsStore questionsStore;
     ArrayList<ScratchQuestion> scratchQuestionsPool;
 
@@ -30,11 +28,13 @@ public class ScratchGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scratch_game);
 
-        questionController = new QuestionController(ScratchGame.this);
-        questionsStore = new ScratchQuestionsStore(getApplicationContext());
 
-        questionController.loadScratchQuestions();
+        questionsStore = new ScratchQuestionsStore(this);
         scratchQuestionsPool = questionsStore.getScratchQuestions();
+
+
+        //Log.d("Scratch SG", scratchQuestionsPool.toString());
+
 
 
         fragmentScratch = new ScratchFragment();
@@ -42,6 +42,8 @@ public class ScratchGame extends AppCompatActivity {
         bundle.putParcelable("Questions", Parcels.wrap(scratchQuestionsPool));
         fragmentScratch.setArguments(bundle);
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_scratch, fragmentScratch).commit();
+
+
     }
 
     @Override

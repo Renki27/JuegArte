@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.dam.juegarte.GameMode;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchGame;
+import com.dam.juegarte.TrueFalseGameActivity;
 import com.dam.juegarte.stores.GameModesStore;
 
 import java.util.ArrayList;
@@ -62,6 +63,13 @@ public class GamesFragment extends Fragment{
 
         setButtonsNames();
 
+        gameMode2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), TrueFalseGameActivity.class);
+                startActivity(intent);
+            }
+        });
 
         gameMode3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,10 +82,11 @@ public class GamesFragment extends Fragment{
         return view;
     }
 
-
     public void setButtonsNames() {
         gameMode1.setText(gameModes.get(0).getGameMode());
         gameMode2.setText(gameModes.get(1).getGameMode());
         gameMode3.setText(gameModes.get(2).getGameMode());
     }
+
+
 }

@@ -3,7 +3,6 @@ package com.dam.juegarte;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Parcel;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 
+import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
@@ -29,7 +29,6 @@ import java.util.Collections;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dev.skymansandy.scratchcardlayout.listener.ScratchListener;
 import dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout;
-
 
 public class ScratchFragment extends Fragment implements ScratchListener {
 
@@ -112,7 +111,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         //  scratchCardLayout.revealScratch();
 
         if (scratchQuestionsPool != null) {
-            //  Log.d("Question bundle", scratchQuestionsPool.toString());
+              Log.d("Question bundle", scratchQuestionsPool.toString());
 
             Log.d("Size", scratchQuestionsPool.size() + "");
 

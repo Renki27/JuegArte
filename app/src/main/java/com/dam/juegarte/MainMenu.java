@@ -16,6 +16,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.dam.juegarte.adapters.MainViewPagerAdapter;
 import com.dam.juegarte.controller.GameController;
+import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.fragments.AchievementsFragment;
 import com.dam.juegarte.fragments.GamesFragment;
 import com.dam.juegarte.fragments.SettingsFragment;
@@ -32,6 +33,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     UserSessionStore userStore;
     GameModesStore gameModesStore;
     GameController gameController;
+    QuestionController questionController;
     private Gson gson;
 
     private ViewPager vPager;
@@ -70,7 +72,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
 
         gameController = new GameController(MainMenu.this);
-        gameController.loadGameModes();*/
+        gameController.loadGameModes();
+
+        questionController = new QuestionController(MainMenu.this);
+        questionController.loadScratchQuestions();
 
 /*
         Intent intent = getIntent();

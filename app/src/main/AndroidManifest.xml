@@ -2,17 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.dam.juegarte">
-
     <!-- this is the internet permission -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!--
    Allows Glide to monitor connectivity status and restart failed requests if users go from a
    a disconnected to a connected network state.
-   -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         tools:replace="android:icon"
@@ -21,40 +19,35 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        >
-
+        android:usesCleartextTraffic="true">
+        <activity android:name=".TrueFalseGameActivity"></activity>
         <activity
-            android:name="com.dam.juegarte.MainMenu"
+            android:name=".MainMenu"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
-            android:name="com.dam.juegarte.SplashScreen"
+            android:name=".SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
-            android:name="com.dam.juegarte.Sign_in"
+            android:name=".Sign_in"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
-            android:name="com.dam.juegarte.Sign_up"
+            android:name=".Sign_up"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
-            android:name="com.dam.juegarte.UserProfile"
+            android:name=".UserProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name="com.dam.juegarte.ScratchGame" />
-        <activity android:name="com.dam.juegarte.GameModeMenu" />
-
+        <activity android:name=".ScratchGame" />
+        <activity android:name=".GameModeMenu" />
     </application>
 
 </manifest>
