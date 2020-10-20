@@ -6,4 +6,15 @@
     tools:context=".fragments.AchievementsFragment"
     android:background="@color/colorPrimary">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/achievements"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/black"
+        />
+
 </FrameLayout>

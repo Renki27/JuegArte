@@ -59,12 +59,12 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         tvEmail = view.findViewById(R.id.tv_email);
         tvPoints = view.findViewById(R.id.tv_points);
 
-        //userStore = new UserSessionStore(activity);
-        //gameModesStore = new GameModesStore(activity);
+        userStore = new UserSessionStore(getActivity().getApplicationContext());
 
-        //userData = userStore.getUserData();
-        //setUserData();
-        //loadUserAvatar();
+
+        userData = userStore.getUserData();
+        setUserData();
+        loadUserAvatar();
 
         return view;
     }
