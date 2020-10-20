@@ -79,6 +79,30 @@ public class TrueFalseGameActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
+        dialog.setTitleText(getString(R.string.exit));
+        dialog.setContentText(getString(R.string.game_exit_confirmation));
+        dialog.setConfirmText(getString(R.string.exit));
+        dialog.setCancelText(getString(R.string.cancel));
+        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismiss();
+                finish();
+            }
+        });
+        dialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+                sweetAlertDialog.dismiss();
+            }
+        });
+        dialog.show();
+    }
+
     public void setQuestion(final TrueFalseQuestion question){
         tv_question.setText(question.getQuestionText());
         correct_answer = question.getTf_answer();
