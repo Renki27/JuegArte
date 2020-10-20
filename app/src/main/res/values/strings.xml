@@ -45,5 +45,7 @@
     <string name="question_information">Question information</string>
     <string name="correct">CORRECT</string>
     <string name="incorrect">INCORRECT</string>
+    <string name="settings">Settings</string>
+    <string name="achievements">Achievements</string>
 
 </resources>
