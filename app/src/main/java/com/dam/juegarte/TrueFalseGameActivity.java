@@ -63,7 +63,7 @@ public class TrueFalseGameActivity extends AppCompatActivity {
         questionController.loadTrueFalseQuestions();
         trueFalseQuestionsPool = questionStore.getTrueFalseQuestions();
 
-        Log.d("True false: ", trueFalseQuestionsPool.toString());
+        //Log.d("True false: ", trueFalseQuestionsPool.toString());
 
         info.setContentView(R.layout.info_question);
         tv_state = info.findViewById(R.id.tv_state);

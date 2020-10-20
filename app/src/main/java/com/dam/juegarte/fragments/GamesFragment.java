@@ -14,6 +14,7 @@ import android.widget.Button;
 import com.dam.juegarte.GameMode;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchGame;
+import com.dam.juegarte.TriviaGameActivity;
 import com.dam.juegarte.TrueFalseGameActivity;
 import com.dam.juegarte.stores.GameModesStore;
 
@@ -62,6 +63,14 @@ public class GamesFragment extends Fragment{
         gameMode3 = view.findViewById(R.id.btn_game_3);
 
         setButtonsNames();
+
+        gameMode1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), TriviaGameActivity.class);
+                startActivity(intent);
+            }
+        });
 
         gameMode2.setOnClickListener(new View.OnClickListener() {
             @Override

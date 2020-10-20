@@ -76,6 +76,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         questionController = new QuestionController(MainMenu.this);
         questionController.loadScratchQuestions();
+        questionController.loadTriviaQuestions();
+        questionController.loadTrueFalseQuestions();
 
 /*
         Intent intent = getIntent();
