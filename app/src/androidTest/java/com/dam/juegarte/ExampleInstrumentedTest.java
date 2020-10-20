@@ -1,4 +1,4 @@
-package com.dam.juegarte;
+package com.dam.juegarte.tests;
 
 import android.content.Context;
 
