@@ -4,11 +4,11 @@ import org.parceler.Parcel;
 
 @Parcel
 public class ScratchQuestion extends Question {
-    private String option1;
-    private String option2;
-    private String option3;
-    private String option4;
-    private String answer;
+     String option1;
+     String option2;
+     String option3;
+     String option4;
+     String answer;
 
 
     public ScratchQuestion() {

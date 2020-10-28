@@ -18,6 +18,9 @@ import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
 import org.parceler.Parcel;
 import org.parceler.Parcels;
@@ -130,7 +133,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         scratchCardLayout.setScratchEnabled(true);
         scratchCardLayout.resetScratch();
         questionText.setText(question.getQuestionText());
-        questionNumber.setText(counter + 1 + " / " + scratchQuestionsPool.size());
+        questionNumber.setText(getString(R.string.question) + " " + (counter + 1));
         option1.setText(question.getOption1());
         option2.setText(question.getOption2());
         option3.setText(question.getOption3());
@@ -149,7 +152,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                     totalScore += points;
                     counter++;
                     Log.d("total score", totalScore + "");
-                    deploySuccessDialog(getString(R.string.question_info), question.getQuestionInformation());
+                    deploySuccessDialog2(getString(R.string.question_info), question.getQuestionInformation());
                     //   recall();
                     //    setCurrentQuestion(scratchQuestionsPool.get(counter));
                     //TODO: popup + next question
@@ -265,6 +268,25 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         dialog.show();
     }
 
+    public void deploySuccessDialog2(String title, String message) {
+        MaterialDialog mDialog = new MaterialDialog.Builder(getActivity())
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.correct_animation)
+                .setPositiveButton("Next", R.drawable.ic_check, new BottomSheetMaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
+
+    }
+
     public void deployErrorDialog(String title, String message) {
         SweetAlertDialog dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
         dialog.setTitleText(title);
@@ -337,8 +359,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     public void loadQuestionImage(ScratchQuestion question) {
         Glide.with(getActivity().getApplicationContext())
                 .load(IMAGES_URL + question.getQuestionImage())
-                .centerCrop()
-                .centerInside()
+                .fitCenter()
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(questionImage);
         //    Log.d("img", IMAGES_URL + question.getQuestionImage());
