@@ -32,7 +32,6 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
         etPassword = findViewById(R.id.et_password);
         userStore = new UserSessionStore(this);
 
-
         // TODO: Tarea
         // Finalizar el método gotoRegister
         // Hacer el activity RegisterActivity y su funcionalidad

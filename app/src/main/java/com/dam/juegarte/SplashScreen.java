@@ -10,7 +10,7 @@ import com.dam.juegarte.stores.UserSessionStore;
 
 public class SplashScreen extends Activity {
 
-    private final int SPLASH_DISPLAY_LENGTH = 8000;
+    private final int SPLASH_DISPLAY_LENGTH = 1000;
     UserSessionStore userStore;
     boolean loggedIn;
 
