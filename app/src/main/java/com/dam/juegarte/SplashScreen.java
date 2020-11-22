@@ -29,21 +29,21 @@ public class SplashScreen extends Activity {
         new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
+
+                Intent mainIntent = new Intent();
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(SplashScreen.this, Sign_in.class);
+                if (loggedIn) {
+                    mainIntent = new Intent(SplashScreen.this, MainMenu.class);
+                } else {
+                    mainIntent = new Intent(SplashScreen.this, Sign_in.class);
+                }
                 SplashScreen.this.startActivity(mainIntent);
                 SplashScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
 
 //        Intent intent;
-//        if (loggedIn) {
-//            intent = new Intent(SplashScreen.this, MainMenu.class);
-//        } else {
-//            intent = new Intent(SplashScreen.this, MainMenu.class);
-//        }
-//        startActivity(intent);
-//        finish();
+//
 /*
 //        Hilo para correr el splash screen antes de entrar a la aplicacion
         new Handler().postDelayed(new Runnable() {
