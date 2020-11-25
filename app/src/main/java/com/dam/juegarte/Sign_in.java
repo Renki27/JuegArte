@@ -1,10 +1,10 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,10 +15,12 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etUsername;
     private EditText etPassword;
-    private ProgressBar loading;
     UserSessionStore userStore;
     AccountController accountController;
     private static final String BASE_URL = "http://10.0.2.2/juegarte-API";
+
+    public Sign_in(Context context) {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +28,10 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_signin);
 
         accountController = new AccountController(Sign_in.this);
-
         userStore = new UserSessionStore(this);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
         userStore = new UserSessionStore(this);
-
-        // TODO: Tarea
-        // Finalizar el método gotoRegister
-        // Hacer el activity RegisterActivity y su funcionalidad
     }
 
     @Override
@@ -65,11 +62,22 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
             etPassword.setError(getString(R.string.error_password));
             return;
         }
-
-
        accountController.login(username, password);
+    }
 
+    private void createAccount() {
+        Intent intent = new Intent(Sign_in.this, Sign_up.class);
+        startActivity(intent);
+    }
 
+    public String validate(String userName, String password)
+    {
+        if(userName.equals("user") && password.equals("user"))
+            return "Login was successful";
+        else
+            return "Invalid login!";
+    }
+}
 
 /*        RequestQueue requestQueue = Volley.newRequestQueue(Sign_in.this);
 
@@ -167,7 +175,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
 
 
 //        Log.d("arr", userData.toString());
-       // User user = accountController.returnResponseUser();
+// User user = accountController.returnResponseUser();
 /*
         if (user != null) {
             Toast.makeText(Sign_in.this, R.string.sign_in_success + " " + user.username, Toast.LENGTH_SHORT).show();
@@ -209,12 +217,3 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(this, R.string.error_password, Toast.LENGTH_SHORT).show();
             }
         }*/
-
-
-    }
-
-    private void createAccount() {
-        Intent intent = new Intent(Sign_in.this, Sign_up.class);
-        startActivity(intent);
-    }
-}

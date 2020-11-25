@@ -1,5 +1,6 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,9 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
     UserSessionStore userStore;
     AccountController accountController;
     UserMiddleware userMiddleware;
+
+    public Sign_up(Context context) {
+    }
 
 
     @Override
@@ -100,16 +104,16 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
         } else {
             Toast.makeText(this, validation, Toast.LENGTH_SHORT).show();
         }
+    }
+    public String validate(String email, String username, String password, String passwordConfirm){
+        if(email.equals("email") && username.equals("user") && password.equals("password") && passwordConfirm.equals("password"))
+            return "Register was successful";
+        else
+            return "Invalid register!";
+    }
+}
 
-
-
-
-
-
-
-
-
-        /*
+/*
         User userData = new User(name, password, email);
         Log.d("user: ", name + " " + email + " " + password);
 
@@ -125,7 +129,3 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
         }
 
          */
-
-
-    }
-}
