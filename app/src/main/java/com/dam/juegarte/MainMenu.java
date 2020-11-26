@@ -1,16 +1,13 @@
 package com.dam.juegarte;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -78,22 +75,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         questionController.loadScratchQuestions();
         questionController.loadTriviaQuestions();
         questionController.loadTrueFalseQuestions();
-
-/*
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        String email = intent.getStringExtra("email");
-        int points = Integer.parseInt(intent.getStringExtra("points"));
-        String image = intent.getStringExtra("image");
-        User userData = new User(username, email, points, image);
-
- */
-
-
-        //para agregar el toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        // toolbar.setTitle("Welcome");
-        setSupportActionBar(toolbar);
 
 
     }

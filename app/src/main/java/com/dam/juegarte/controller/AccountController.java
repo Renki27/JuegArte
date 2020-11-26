@@ -160,7 +160,6 @@ public class AccountController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-
                         }
                     }
                 },

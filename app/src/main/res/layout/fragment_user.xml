@@ -21,12 +21,12 @@
         android:id="@id/iv_user_image"
         android:layout_width="175dp"
         android:layout_height="175dp"
-        android:scaleType="centerCrop"
-        app:civ_border_color="#000000"
-        app:civ_border_width="8dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/avatar_1" />
+        android:layout_marginTop="50dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar_1"
+        app:civ_border_color="#000000"
+        app:civ_border_width="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
