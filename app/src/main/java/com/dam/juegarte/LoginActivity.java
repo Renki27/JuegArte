@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.dam.juegarte.controller.AccountController;
 import com.dam.juegarte.stores.UserSessionStore;
 
-public class Sign_in extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etUsername;
     private EditText etPassword;
@@ -19,7 +19,10 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
     AccountController accountController;
     private static final String BASE_URL = "http://10.0.2.2/juegarte-API";
 
-    public Sign_in(Context context) {
+    public LoginActivity() {
+    }
+
+    public LoginActivity(Context context) {
     }
 
     @Override
@@ -27,7 +30,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin);
 
-        accountController = new AccountController(Sign_in.this);
+        accountController = new AccountController(LoginActivity.this);
         userStore = new UserSessionStore(this);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
@@ -66,7 +69,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void createAccount() {
-        Intent intent = new Intent(Sign_in.this, Sign_up.class);
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
     }
 
@@ -79,7 +82,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
     }
 }
 
-/*        RequestQueue requestQueue = Volley.newRequestQueue(Sign_in.this);
+/*        RequestQueue requestQueue = Volley.newRequestQueue(LoginActivity.this);
 
 
         StringRequest request = new StringRequest(Request.Method.POST, BASE_URL + "/signin.php",
@@ -104,7 +107,7 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
                                     int points = Integer.parseInt(userData.getString("points").trim());
                                     String image = userData.getString("image").trim();
 
-                                    Intent intent = new Intent(Sign_in.this, MainMenu.class);
+                                    Intent intent = new Intent(LoginActivity.this, MainMenu.class);
                                     intent.putExtra("username", username);
                                     intent.putExtra("email", email);
                                     intent.putExtra("points", points);
@@ -121,20 +124,20 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
 
 
                             } else {
-                                Toast.makeText(Sign_in.this, message, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                             }
 
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(Sign_in.this, R.string.something_happened, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, R.string.something_happened, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Sign_in.this, R.string.sign_in_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, R.string.sign_in_error, Toast.LENGTH_SHORT).show();
 
                         NetworkResponse response = error.networkResponse;
                         String errorMsg = "";
@@ -178,12 +181,12 @@ public class Sign_in extends AppCompatActivity implements View.OnClickListener {
 // User user = accountController.returnResponseUser();
 /*
         if (user != null) {
-            Toast.makeText(Sign_in.this, R.string.sign_in_success + " " + user.username, Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, R.string.sign_in_success + " " + user.username, Toast.LENGTH_SHORT).show();
 
-            Toast.makeText(Sign_in.this, user.username + " " + user.email + " " + user.points + " " + user.image, Toast.LENGTH_SHORT).show();
+            Toast.makeText(LoginActivity.this, user.username + " " + user.email + " " + user.points + " " + user.image, Toast.LENGTH_SHORT).show();
 
 /*
-            Intent intent = new Intent(Sign_in.this, MainMenu.class);
+            Intent intent = new Intent(LoginActivity.this, MainMenu.class);
             intent.putExtra("username", user.username);
             intent.putExtra("email", user.email);
             intent.putExtra("points", user.points);

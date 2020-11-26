@@ -16,7 +16,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dam.juegarte.MainMenu;
-import com.dam.juegarte.Sign_in;
+import com.dam.juegarte.LoginActivity;
 import com.dam.juegarte.User;
 import com.dam.juegarte.stores.UserSessionStore;
 import com.dam.juegarte.R;
@@ -142,7 +142,7 @@ public class AccountController {
 
                                     Intent intent = new Intent(context, MainMenu.class);
                                     context.startActivity(intent);
-                                    ((Sign_in) context).finish();
+                                    ((LoginActivity) context).finish();
 
 
                                     // Toast.makeText(context, R.string.sign_in_success + " " + username, Toast.LENGTH_SHORT).show();

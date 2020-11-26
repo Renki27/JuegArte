@@ -1,12 +1,10 @@
 package com.dam.juegarte;
 
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.stores.ScratchQuestionsStore;
 
 import org.parceler.Parcels;

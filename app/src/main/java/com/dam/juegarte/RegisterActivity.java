@@ -14,7 +14,7 @@ import com.dam.juegarte.middleware.UserMiddleware;
 import com.dam.juegarte.stores.UserSessionStore;
 
 
-public class Sign_up extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText etUsername;
     private EditText etEmail;
@@ -24,7 +24,10 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
     AccountController accountController;
     UserMiddleware userMiddleware;
 
-    public Sign_up(Context context) {
+    public RegisterActivity() {
+    }
+
+    public RegisterActivity(Context context) {
     }
 
 
@@ -32,7 +35,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-        accountController = new AccountController(Sign_up.this);
+        accountController = new AccountController(RegisterActivity.this);
         userMiddleware = new UserMiddleware();
 
         etUsername = findViewById(R.id.et_Username);
@@ -59,7 +62,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void signIn() {
-        Intent intent = new Intent(Sign_up.this, Sign_in.class);
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
         startActivity(intent);
     }
 
@@ -98,7 +101,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
 
             accountController.createAccount(user);
 
-            Intent intent = new Intent(Sign_up.this, Sign_in.class);
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         } else {
@@ -123,7 +126,7 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
         } else {
             userStore.storeUserData(userData);
             Toast.makeText(this, R.string.account_created, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Sign_up.this, Sign_in.class);
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
         }

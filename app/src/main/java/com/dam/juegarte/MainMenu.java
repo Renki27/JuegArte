@@ -146,7 +146,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         userStore.setUserLoggedIn(false);
         userStore.clearUserData();
         //  gameModesStore.clearGameModes();
-        //   Intent intent = new Intent(this, Sign_in.class);
+        //   Intent intent = new Intent(this, LoginActivity.class);
         //   startActivity(intent);
         //  finish();
     }

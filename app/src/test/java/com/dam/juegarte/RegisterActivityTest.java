@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 
-public class Sign_upTest {
+public class RegisterActivityTest {
 
     private static final String FAKE_STRING = "Register was successful";
 
@@ -21,7 +21,7 @@ public class Sign_upTest {
 
     @Test
     public void readStringFromContext_LocalizedString() {
-        Sign_up myObjectUnderTest = new Sign_up(mMockContext);
+        RegisterActivity myObjectUnderTest = new RegisterActivity(mMockContext);
 
         // Login Correct
 //        String result = myObjectUnderTest.validate("user", "user");
