@@ -90,11 +90,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
  */
 
 
-        //para agregar el toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        // toolbar.setTitle("Welcome");
-        setSupportActionBar(toolbar);
-
 
     }
 

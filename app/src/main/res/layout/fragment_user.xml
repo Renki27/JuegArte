@@ -4,37 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/background_default">
 
-    <ImageView
-        android:id="@+id/iv_user_image"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="84dp"
-        android:contentDescription="@string/avatar"
-        android:src="@mipmap/ic_launcher" />
+    <!--    <ImageView-->
+    <!--        android:id="@+id/iv_user_image"-->
+    <!--        android:layout_width="150dp"-->
+    <!--        android:layout_height="150dp"-->
+    <!--        android:layout_centerHorizontal="true"-->
+    <!--        android:layout_marginTop="84dp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        android:contentDescription="@string/avatar"-->
+    <!--        android:src="@mipmap/ic_launcher" />-->
 
-
-    <Button
-        android:id="@+id/btn_update_image"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_user_image"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/transparent"
-        android:onClick="onClick"
-        android:text="@string/update_img"
-        android:textSize="10sp" />
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            android:tooltipText="@string/username"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@id/iv_user_image"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar_1"
+        app:civ_border_color="#000000"
+        app:civ_border_width="8dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_update_image"
-        android:layout_marginTop="8dp"
+        android:layout_below="@+id/iv_user_image"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
         android:weightSum="2">

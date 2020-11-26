@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     >
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="120dp"
-        android:contentDescription="@string/app_name"
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher" />
+    <pl.droidsonroids.gif.GifImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/splash" />
 
     <TextView
-
         android:id="@+id/textView"
         android:text="@string/splashScreen"
         android:textSize="40sp"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:gravity="center" />
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="310dp"
+        android:fontFamily="@font/cocogoose"
+        android:textColor="@android:color/white"
+        />
 
-</LinearLayout>
+</RelativeLayout>

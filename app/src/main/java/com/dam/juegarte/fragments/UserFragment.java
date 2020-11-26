@@ -3,6 +3,7 @@ package com.dam.juegarte.fragments;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,6 +62,10 @@ public class UserFragment extends Fragment implements View.OnClickListener{
 
         userStore = new UserSessionStore(getActivity().getApplicationContext());
 
+        //para agregar el toolbar
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        // toolbar.setTitle("Welcome");
+        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
         userData = userStore.getUserData();
         setUserData();

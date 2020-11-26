@@ -1,8 +1,11 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,11 +22,16 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
     private EditText etEmail;
     private EditText etPassword;
     private EditText etPasswordConfirm;
+    private Button btnSignIn;
     UserSessionStore userStore;
     AccountController accountController;
     UserMiddleware userMiddleware;
 
+    public Sign_up() {
+    }
 
+    public Sign_up(Context context) {
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +43,9 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
         etEmail = findViewById(R.id.et_email);
         etPassword = findViewById(R.id.et_password);
         etPasswordConfirm = findViewById(R.id.et_passwordConfirm);
+        btnSignIn = findViewById(R.id.btn_sign_in);
+        btnSignIn.setPaintFlags(btnSignIn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+
         userStore = new UserSessionStore(this);
 
 
@@ -101,31 +112,12 @@ public class Sign_up extends AppCompatActivity implements View.OnClickListener {
             Toast.makeText(this, validation, Toast.LENGTH_SHORT).show();
         }
 
+    }
 
-
-
-
-
-
-
-
-        /*
-        User userData = new User(name, password, email);
-        Log.d("user: ", name + " " + email + " " + password);
-
-        Toast.makeText(this, name, Toast.LENGTH_SHORT).show();
-        if (userStore.getUserData() != null) {
-            Toast.makeText(this, R.string.sign_up_error, Toast.LENGTH_SHORT).show();
-        } else {
-            userStore.storeUserData(userData);
-            Toast.makeText(this, R.string.account_created, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(Sign_up.this, Sign_in.class);
-            startActivity(intent);
-            finish();
-        }
-
-         */
-
-
+    public String validate(String email, String username, String password, String passwordConfirm) {
+        if (email.equals("email") && username.equals("user") && password.equals("password") && passwordConfirm.equals("password"))
+            return "Register was successful";
+        else
+            return "Invalid register!";
     }
 }
