@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.dam.juegarte.LoginActivity;
 import com.dam.juegarte.MainMenu;
-import com.dam.juegarte.Sign_in;
 import com.dam.juegarte.User;
 
 public class UserSessionStore {
@@ -61,14 +61,14 @@ public class UserSessionStore {
     public void clearUserData() {
         editor.clear();
         editor.apply();
-        Intent intent = new Intent(context, Sign_in.class);
+        Intent intent = new Intent(context, LoginActivity.class);
         context.startActivity(intent);
         ((MainMenu) context).finish();
     }
 
     public void checkLogin() {
         if (!getUserLoggedIn()) {
-            Intent intent = new Intent(context, Sign_in.class);
+            Intent intent = new Intent(context, LoginActivity.class);
             context.startActivity(intent);
             ((MainMenu) context).finish();
         }

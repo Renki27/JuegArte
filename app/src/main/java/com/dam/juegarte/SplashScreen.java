@@ -34,7 +34,7 @@ public class SplashScreen extends Activity {
                 if (loggedIn) {
                     mainIntent = new Intent(SplashScreen.this, MainMenu.class);
                 } else {
-                    mainIntent = new Intent(SplashScreen.this, Sign_in.class);
+                    mainIntent = new Intent(SplashScreen.this, LoginActivity.class);
                 }
                 SplashScreen.this.startActivity(mainIntent);
                 SplashScreen.this.finish();
@@ -52,7 +52,7 @@ public class SplashScreen extends Activity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(SplashScreen.this, Sign_in.class);
+                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
                     //importante el finish para que no se pueda volver a esta pantalla

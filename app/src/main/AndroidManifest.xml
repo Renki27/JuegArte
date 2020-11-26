@@ -36,11 +36,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Sign_in"
+            android:name=".LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Sign_up"
+            android:name=".RegisterActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
