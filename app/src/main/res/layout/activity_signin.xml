@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dam.juegarte.LoginActivity"
+    tools:context="com.dam.juegarte.Sign_in"
     android:background="@drawable/background_default"
     >
 
@@ -30,44 +30,54 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/montserrat"
-            android:text="Accede a tu cuenta"
+            android:text="@string/sign_in_to"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
             >
             <EditText
                 android:id="@+id/et_username"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blank_spaces"
                 android:ems="10"
                 android:fontFamily="@font/montserrat"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
                 android:hint="@string/username"
                 android:inputType="textPersonName"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:autofillHints=""
+                tools:ignore="RtlSymmetry"
+                />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            >
 
             <EditText
                 android:id="@+id/et_password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:ems="10"
                 android:fontFamily="@font/montserrat"
-                android:paddingLeft="20dp"
+                android:paddingStart="20dp"
                 android:background="@drawable/blank_spaces"
                 android:hint="@string/password"
                 android:inputType="textPassword"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                />
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -91,9 +101,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat"
-        android:text="¿Eres nuevo en JuegArte?"
+        android:text="@string/or"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -102,12 +112,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
         android:layout_marginEnd="40dp"
         android:background="@color/transparent"
         android:fontFamily="@font/montserrat"
         android:onClick="onClick"
         android:text="@string/create_account"
-        android:textSize="16sp" />
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:layout_marginTop="4dp"
+        />
 
 </LinearLayout>

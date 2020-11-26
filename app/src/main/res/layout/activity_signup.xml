@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dam.juegarte.RegisterActivity"
+    tools:context="com.dam.juegarte.Sign_up"
     android:background="@drawable/background_default">
 
     <ImageView
-        android:layout_width="325dp"
-        android:layout_height="100dp"
+        android:layout_width="350dp"
+        android:layout_height="80dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="60dp"
         android:contentDescription="@string/app_name"
@@ -19,19 +19,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
-        android:padding="40dp">
+        android:padding="20dp">
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            >
 
             <EditText
                 android:id="@+id/et_Username"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blank_spaces"
                 android:paddingLeft="20dp"
                 android:ems="10"
@@ -44,12 +47,16 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_marginTop="10dp"
+            >
 
             <EditText
                 android:id="@+id/et_email"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:paddingLeft="20dp"
                 android:background="@drawable/blank_spaces"
                 android:ems="10"
@@ -63,7 +70,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_marginTop="10dp"
+            >
 
             <EditText
                 android:id="@+id/et_password"
@@ -82,7 +93,11 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:passwordToggleEnabled="true">
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            android:layout_marginTop="10dp"
+            >
 
             <EditText
                 android:id="@+id/et_passwordConfirm"
@@ -118,9 +133,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/montserrat"
-        android:text="¿Ya jugaste JuegArte?"
+        android:text="@string/or"
         android:textColor="@color/white"
         android:textSize="20dp" />
 
@@ -129,12 +144,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
-        android:textColor="@color/white"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
         android:layout_marginEnd="40dp"
         android:background="@color/transparent"
         android:fontFamily="@font/montserrat"
         android:onClick="onClick"
         android:text="@string/sign_in"
+        android:layout_marginTop="4dp"
         android:textSize="16sp" />
 
 </LinearLayout>

@@ -49,5 +49,7 @@
     <string name="achievements">Achievements</string>
     <string name="scratch_game">Scratch Game</string>
     <string name="start">Start</string>
+    <string name="sign_in_to">Login to your account</string>
+    <string name="or">or</string>
 
 </resources>

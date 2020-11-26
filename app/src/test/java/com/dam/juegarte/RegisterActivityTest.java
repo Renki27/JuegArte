@@ -21,7 +21,7 @@ public class RegisterActivityTest {
 
     @Test
     public void readStringFromContext_LocalizedString() {
-        RegisterActivity myObjectUnderTest = new RegisterActivity(mMockContext);
+        Sign_up myObjectUnderTest = new Sign_up(mMockContext);
 
         // Login Correct
 //        String result = myObjectUnderTest.validate("user", "user");

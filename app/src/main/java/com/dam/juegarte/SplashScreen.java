@@ -7,7 +7,6 @@ import android.os.Handler;
 
 import com.dam.juegarte.stores.UserSessionStore;
 
-
 public class SplashScreen extends Activity {
 
     private final int SPLASH_DISPLAY_LENGTH = 1000;
@@ -35,15 +34,12 @@ public class SplashScreen extends Activity {
                 if (loggedIn) {
                     mainIntent = new Intent(SplashScreen.this, MainMenu.class);
                 } else {
-                    mainIntent = new Intent(SplashScreen.this, LoginActivity.class);
+                    mainIntent = new Intent(SplashScreen.this, Sign_in.class);
                 }
                 SplashScreen.this.startActivity(mainIntent);
                 SplashScreen.this.finish();
             }
         }, SPLASH_DISPLAY_LENGTH);
-
-//        Intent intent;
-//
 /*
 //        Hilo para correr el splash screen antes de entrar a la aplicacion
         new Handler().postDelayed(new Runnable() {
@@ -56,7 +52,7 @@ public class SplashScreen extends Activity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(SplashScreen.this, LoginActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, Sign_in.class);
                     startActivity(intent);
                     finish();
                     //importante el finish para que no se pueda volver a esta pantalla

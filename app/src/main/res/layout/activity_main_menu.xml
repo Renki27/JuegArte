@@ -8,6 +8,8 @@
     tools:context="com.dam.juegarte.MainMenu">
 
 
+
+
     <androidx.viewpager.widget.ViewPager
 
         android:id="@+id/vp_pager"
