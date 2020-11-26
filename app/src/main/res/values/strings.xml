@@ -47,5 +47,7 @@
     <string name="incorrect">INCORRECT</string>
     <string name="settings">Settings</string>
     <string name="achievements">Achievements</string>
+    <string name="scratch_game">Scratch Game</string>
+    <string name="start">Start</string>
 
 </resources>
