@@ -35,5 +35,6 @@
     <string name="settings">Ajustes</string>
     <string name="achievements">Logros</string>
     <string name="country">País</string>
+    <string name="cancel">Cancelar</string>
 
 </resources>

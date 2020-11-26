@@ -12,13 +12,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.dam.juegarte.GameMode;
-import com.dam.juegarte.Question;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchQuestion;
 import com.dam.juegarte.TriviaQuestion;
 import com.dam.juegarte.TrueFalseQuestion;
-import com.dam.juegarte.stores.GameModesStore;
 import com.dam.juegarte.stores.ScratchQuestionsStore;
 import com.dam.juegarte.stores.TriviaQuestionsStore;
 import com.dam.juegarte.stores.TrueFalseQuestionStore;
@@ -96,7 +93,7 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 },
@@ -172,7 +169,7 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 },
@@ -254,7 +251,6 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },

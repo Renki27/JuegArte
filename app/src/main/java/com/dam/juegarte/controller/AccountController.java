@@ -61,7 +61,6 @@ public class AccountController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -161,7 +160,7 @@ public class AccountController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 },
