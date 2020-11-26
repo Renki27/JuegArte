@@ -93,7 +93,7 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-
+                            Toast.makeText(context, "Something Wrong Happened", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -169,7 +169,7 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-
+                            Toast.makeText(context, "Something Wrong Happened", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -251,6 +251,7 @@ public class QuestionController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
+                            Toast.makeText(context, "Something Wrong Happened", Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
