@@ -1,2 +1,3 @@
+include ':MaterialDialogLibrary'
 include ':app'
 rootProject.name = "JuegArte"

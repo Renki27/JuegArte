@@ -1,40 +1,53 @@
 <resources>
     <string name="app_name">JuegArte</string>
-    <string name="splashScreen">JuegArte</string>
-    <string name="email">Correo</string>
-    <string name="password">Contraseña</string>
-    <string name="sign_in">Ingresar</string>
-    <string name="create_account">Crear Cuenta</string>
-    <string name="error_email">Correo erróneo o Inexistente</string>
-    <string name="error_password">Verifica tu contraseña</string>
-    <string name="sign_in_success">¡Bienvenido!</string>
-    <string name="name">Nombre</string>
-    <string name="sign_up_error">Esta cuenta ya existe</string>
-    <string name="account_created">Cuenta creada</string>
-    <string name="error_name">No puede estar vacío</string>
-    <string name="log_out">Cerrar Sesión</string>
-    <string name="passwordConfirm">Confirmar Contraseña</string>
-    <string name="username">Usuario</string>
-    <string name="sign_in_error">Datos erróneos, verificalo</string>
-    <string name="profile">Perfil</string>
+    <string name="splashScreen">SplashScreen</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="create_account">Create an account</string>
+    <string name="error_email">Email is wrong or doesn\'t exist!</string>
+    <string name="error_password">Wrong password!</string>
+    <string name="sign_in_success">Welcome!</string>
+    <string name="name">Name</string>
+    <string name="sign_up_error">The account already exists!</string>
+    <string name="account_created">Your account was created!</string>
+    <string name="error_name">Name can\'t be empty</string>
+    <string name="log_out">Log out</string>
+    <string name="task_name">Task name</string>
+    <string name="add">Add</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_confirm">Do you want to delete the item?</string>
+    <string name="yes">Yes</string>
+    <string name="clear_item">Clear Items</string>
+    <string name="something_happened">Oops!, Something happened!</string>
+    <string name="passwordConfirm">Password Confirm</string>
+    <string name="username">Username</string>
+    <string name="sign_in_error">Account is not registered or invalid data</string>
+    <string name="profile">Profile</string>
     <string name="avatar">Avatar</string>
-    <string name="points">Puntaje</string>
-    <string name="games">Juegos</string>
+    <string name="update_img">Update image</string>
+    <string name="points">Points</string>
+    <string name="games">Games</string>
     <string name="game_mode_name">Game Mode Name</string>
-    <string name="question">Pregunta</string>
-    <string name="question_info">Información</string>
-    <string name="exit">Salir</string>
-    <string name="game_exit_confirmation">El progreso se perderá, ¿Deseas salir?</string>
-    <string name="loading">Cargando...</string>
-    <string name="saving_data">Guardando progreso...</string>
-    <string name="true_btn">Verdadero</string>
-    <string name="false_btn">Falso</string>
-    <string name="question_information">Información</string>
-    <string name="correct">Correcto</string>
-    <string name="incorrect">Incorrecto</string>
-    <string name="settings">Ajustes</string>
-    <string name="achievements">Logros</string>
-    <string name="country">País</string>
-    <string name="cancel">Cancelar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="question">Question</string>
+
+    <string name="question_info">Question information</string>
+    <string name="exit">Exit</string>
+    <string name="game_exit_confirmation">Any proggress won\'t be saved, do you want to  leave?</string>
+    <string name="loading">Loading</string>
+    <string name="saving_data">Saving your data!</string>
+
+
+    <string name="true_btn">True</string>
+    <string name="false_btn">False</string>
+    <string name="question_information">Question information</string>
+    <string name="correct">CORRECT</string>
+    <string name="incorrect">INCORRECT</string>
+    <string name="settings">Settings</string>
+    <string name="achievements">Achievements</string>
+    <string name="scratch_game">Scratch Game</string>
+    <string name="start">Start</string>
 
 </resources>

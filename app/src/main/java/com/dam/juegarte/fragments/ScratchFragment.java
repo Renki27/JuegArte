@@ -1,4 +1,4 @@
-package com.dam.juegarte;
+package com.dam.juegarte.fragments;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -15,9 +15,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
+import com.dam.juegarte.R;
+import com.dam.juegarte.ScratchQuestion;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
@@ -32,6 +35,8 @@ import java.util.Collections;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dev.skymansandy.scratchcardlayout.listener.ScratchListener;
 import dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout;
+
+
 
 public class ScratchFragment extends Fragment implements ScratchListener {
 
@@ -51,6 +56,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     Button option3;
     Button option4;
     private int t = -1;
+    GameComplete gameCompleteF;
 
     public ScratchFragment() {
         // Required empty public constructor
@@ -152,7 +158,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                     totalScore += points;
                     counter++;
                     Log.d("total score", totalScore + "");
-                    deploySuccessDialog2(getString(R.string.question_info), question.getQuestionInformation());
+                    deploySuccessDialog(getString(R.string.question_info), question.getQuestionInformation());
                     //   recall();
                     //    setCurrentQuestion(scratchQuestionsPool.get(counter));
                     //TODO: popup + next question
@@ -251,7 +257,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                 .show();
     }
 
-
+/*
     public void deploySuccessDialog(String title, String message) {
         SweetAlertDialog dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE);
         dialog.setTitleText(title);
@@ -268,16 +274,19 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         dialog.show();
     }
 
-    public void deploySuccessDialog2(String title, String message) {
+ */
+
+    public void deploySuccessDialog(String title, String message) {
         MaterialDialog mDialog = new MaterialDialog.Builder(getActivity())
                 .setTitle(title)
                 .setMessage(message)
                 .setCancelable(false)
                 .setAnimation(R.raw.correct_animation)
-                .setPositiveButton("Next", R.drawable.ic_check, new BottomSheetMaterialDialog.OnClickListener() {
+                .setNeutralButton("Next", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         dialogInterface.dismiss();
+                        recall();
                     }
                 })
                 .build();
@@ -288,19 +297,22 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     }
 
     public void deployErrorDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(getActivity())
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.wrong_animation)
+                .setNeutralButton("Next", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        recall();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
     }
 
     public void deployEndDialog(final String title, final String message) {
@@ -340,20 +352,62 @@ public class ScratchFragment extends Fragment implements ScratchListener {
 
             public void onFinish() {
                 t = -1;
-                dialog.setTitleText(title)
+              /*  dialog.setTitleText(title)
                         .setContentText(message)
                         .setConfirmText(getString(R.string.dialog_ok))
                         .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+
+               */
+
+
+
+
+                dialog.dismiss();
+
+                BottomSheetMaterialDialog mDialog = new BottomSheetMaterialDialog.Builder(getActivity())
+                        .setTitle(title)
+                        .setMessage(message)
+                        .setCancelable(false)
+                        .setAnimation(R.raw.fireworks_animation)
+                        .setNeutralButton(getString(R.string.exit), new BottomSheetMaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                                getActivity().finish();
+                            }
+                        })
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+
+
+             //   gameCompleted();
             }
         }.start();
-
+/*
         dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
             @Override
             public void onClick(SweetAlertDialog sweetAlertDialog) {
                 sweetAlertDialog.dismiss();
                 getActivity().finish();
+
             }
+
         });
+
+ */
+    }
+
+
+    public void gameCompleted() {
+        gameCompleteF = new GameComplete();
+    //    Bundle bundle = new Bundle();
+    //    bundle.putParcelable("Questions", Parcels.wrap(scratchQuestionsPool));
+       // gameCompleteF.setArguments(bundle);
+        assert getFragmentManager() != null;
+        getFragmentManager().beginTransaction().replace(R.id.fragment_container, gameCompleteF, "GAME_COMPLETED").addToBackStack("GAME_COMPLETED").commit();
+
     }
 
     public void loadQuestionImage(ScratchQuestion question) {
