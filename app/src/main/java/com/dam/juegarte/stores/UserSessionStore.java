@@ -40,7 +40,7 @@ public class UserSessionStore {
     public User getUserData() {
         String username = userLocal_DB.getString("username", "");
         String email = userLocal_DB.getString("email", "");
-        int points = userLocal_DB.getInt("points", 0);
+        int points = userLocal_DB.getInt("points", 2640);
         String image = userLocal_DB.getString("image", "");
 
         return new User(username, email, points, image);

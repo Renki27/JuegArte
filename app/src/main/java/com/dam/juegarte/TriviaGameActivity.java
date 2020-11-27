@@ -2,7 +2,6 @@ package com.dam.juegarte;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -65,7 +64,7 @@ public class TriviaGameActivity extends AppCompatActivity {
 
         triviaQuestionsPool = questionStore.getTriviaQuestions();
 
-        Log.d("trivia: ", triviaQuestionsPool.toString());
+//        Log.d("trivia: ", triviaQuestionsPool.toString());
 
         if (triviaQuestionsPool != null){
             Collections.shuffle(triviaQuestionsPool);
@@ -146,7 +145,7 @@ public class TriviaGameActivity extends AppCompatActivity {
                 .centerInside()
                 .placeholder(R.drawable.ic_launcher_background)
                 .into(ivQuestionImage);
-        Log.d("img", IMAGES_URL + question.getQuestionImage());
+//        Log.d("img", IMAGES_URL + question.getQuestionImage());
     }
 
     public void recall() {
@@ -246,7 +245,6 @@ public class TriviaGameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
         dialog.setTitleText(getString(R.string.exit));
         dialog.setContentText(getString(R.string.game_exit_confirmation));
@@ -256,7 +254,7 @@ public class TriviaGameActivity extends AppCompatActivity {
             @Override
             public void onClick(SweetAlertDialog sweetAlertDialog) {
                 sweetAlertDialog.dismiss();
-                TriviaGameActivity.this.finish();
+                finish();
             }
         });
         dialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {

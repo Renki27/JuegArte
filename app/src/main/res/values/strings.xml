@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">JuegArte</string>
-    <string name="splashScreen">SplashScreen</string>
+    <string name="splashScreen">JuegArte</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="sign_in">Sign in</string>
@@ -51,5 +51,13 @@
     <string name="start">Start</string>
     <string name="sign_in_to">Login to your account</string>
     <string name="or">or</string>
+    <string name="country">Costa Rica</string>
+    <string name="bar_profile_name">  </string>
+    <string name="aka">Amateur</string>
+    <string name="choose">Choose a Game</string>
+    <string name="scratch_instructions">Scratch the area to discover the image hidden</string>
+    <string name="raspaditas">Raspaditas</string>
+    <string name="verdadero_o_falso">Verdadero o Falso</string>
+    <string name="trivia_quiz">Trivia Quiz</string>
 
 </resources>
