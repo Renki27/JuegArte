@@ -9,6 +9,7 @@
     android:background="@drawable/background_default">
 
     <Button
+        JuegArte:backgroundTint="@null"
         android:id="@+id/btn_title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -22,7 +23,7 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_game_1"
         JuegArte:backgroundTint="@null"
         JuegArte:cornerRadius="20dp"
@@ -39,7 +40,7 @@
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         JuegArte:backgroundTint="@null"
         android:id="@+id/btn_game_2"
         android:layout_below="@id/btn_game_1"
@@ -56,6 +57,7 @@
         android:textSize="20sp" />
 
     <Button
+        JuegArte:backgroundTint="@null"
         android:id="@+id/btn_game_3"
         android:layout_below="@id/btn_game_2"
         android:layout_width="match_parent"
