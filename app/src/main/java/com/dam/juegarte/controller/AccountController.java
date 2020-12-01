@@ -15,8 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.dam.juegarte.LoginActivity;
 import com.dam.juegarte.MainMenu;
+import com.dam.juegarte.LoginActivity;
 import com.dam.juegarte.User;
 import com.dam.juegarte.stores.UserSessionStore;
 import com.dam.juegarte.R;
@@ -61,7 +61,6 @@ public class AccountController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
@@ -161,7 +160,6 @@ public class AccountController {
 
                         } catch (Exception e) {
                             e.printStackTrace();
-                            Toast.makeText(context, R.string.something_happened, Toast.LENGTH_SHORT).show();
                         }
                     }
                 },

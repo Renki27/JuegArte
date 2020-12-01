@@ -1,16 +1,13 @@
 package com.dam.juegarte;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -65,7 +62,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         gson = new Gson();
         userStore = new UserSessionStore(this);
-        gameModesStore = new GameModesStore(this);
+        gameModesStore = new GameModesStore(getApplicationContext());
 
         userStore.checkLogin();
         User userData = userStore.getUserData();
@@ -99,8 +96,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         fragments.add(GamesFragment.newInstance());
         fragments.add(AchievementsFragment.newInstance());
-        fragments.add(SettingsFragment.newInstance());
         fragments.add(UserFragment.newInstance());
+        fragments.add(SettingsFragment.newInstance());
 
 
 
@@ -110,10 +107,10 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
 
     private void setupTabIcons() {
-        tlTabs.getTabAt(0).setIcon(R.drawable.ic_dados);
+        tlTabs.getTabAt(0).setIcon(R.drawable.ic_games);
         tlTabs.getTabAt(1).setIcon(R.drawable.ic_achievements);
-        tlTabs.getTabAt(2).setIcon(R.drawable.ic_settings);
-        tlTabs.getTabAt(3).setIcon(R.drawable.ic_user);
+        tlTabs.getTabAt(2).setIcon(R.drawable.ic_user);
+        tlTabs.getTabAt(3).setIcon(R.drawable.ic_settings);
     }
 
     //para el menu

@@ -7,11 +7,7 @@
     android:orientation="vertical"
     tools:context="com.dam.juegarte.MainMenu">
 
-
-
-
     <androidx.viewpager.widget.ViewPager
-
         android:id="@+id/vp_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -26,29 +22,28 @@
         app:tabTextAppearance="@style/ViewPagerStyle"
         app:tabInlineLabel="true"
         app:tabMode="fixed"
-        app:tabTextColor="@color/black">
+        app:tabTextColor="@color/colorPrimary"
+        android:background="@color/white">
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/ti_games"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-
+            android:layout_height="wrap_content"
             />
-
         <com.google.android.material.tabs.TabItem
             android:id="@+id/ti_achievements"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/ti_settings"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
         <com.google.android.material.tabs.TabItem
             android:id="@+id/ti_user"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
 
 
     </com.google.android.material.tabs.TabLayout>

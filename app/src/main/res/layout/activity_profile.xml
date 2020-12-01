@@ -15,26 +15,12 @@
         android:contentDescription="@string/avatar"
         android:src="@mipmap/ic_launcher" />
 
-
-    <Button
-        android:id="@+id/btn_update_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_user_image"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="40dp"
-        android:background="@color/transparent"
-        android:onClick="onClick"
-        android:text="@string/update_img"
-        android:textSize="10sp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_update_image"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/iv_user_image"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="85dp"
         android:layout_marginEnd="20dp"
         android:orientation="vertical"
         android:weightSum="2">

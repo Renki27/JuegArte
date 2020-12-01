@@ -2,14 +2,13 @@ package com.dam.juegarte.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.dam.juegarte.GameMode;
 import com.dam.juegarte.R;
@@ -62,7 +61,7 @@ public class GamesFragment extends Fragment{
         gameMode2 = view.findViewById(R.id.btn_game_2);
         gameMode3 = view.findViewById(R.id.btn_game_3);
 
-        setButtonsNames();
+//        setButtonsNames();
 
         gameMode1.setOnClickListener(new View.OnClickListener() {
             @Override

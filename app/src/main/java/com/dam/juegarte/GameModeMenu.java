@@ -35,8 +35,6 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
         gameMode3 = findViewById(R.id.btn_game_3);
 
         setButtonsNames();
-
-
     }
 
     @Override

@@ -1,18 +1,18 @@
 package com.dam.juegarte;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
 import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.stores.TrueFalseQuestionStore;
 
@@ -26,8 +26,8 @@ public class TrueFalseGameActivity extends AppCompatActivity {
     private TextView tv_question;
     private ImageView iv_image;
     private String correct_answer;
-    private Button btn_false;
-    private Button btn_true;
+    private ImageButton btn_false;
+    private ImageButton btn_true;
     private int num_question;
     public int points;
 
