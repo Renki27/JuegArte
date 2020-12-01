@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:JuegArte="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl_gameModes"
-    tools:context="com.dam.juegarte.GameModeMenu"
+    tools:context="com.dam.juegarte.fragments.GamesFragment"
     android:background="@drawable/background_default">
 
     <Button
@@ -18,13 +18,14 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_purple"
         android:fontFamily="@font/montserrat_bold"
-        android:onClick="onClick"
         android:text="@string/choose"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_game_1"
+        JuegArte:backgroundTint="@null"
+        JuegArte:cornerRadius="20dp"
         android:layout_below="@id/btn_title"
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -34,12 +35,12 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_yellow"
         android:fontFamily="@font/montserrat_bold"
-        android:onClick="onClick"
         android:text="@string/trivia_quiz"
         android:textColor="@color/white"
         android:textSize="20sp" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        JuegArte:backgroundTint="@null"
         android:id="@+id/btn_game_2"
         android:layout_below="@id/btn_game_1"
         android:layout_width="match_parent"
@@ -50,7 +51,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_yellow"
         android:fontFamily="@font/montserrat_bold"
-        android:onClick="onClick"
         android:text="@string/verdadero_o_falso"
         android:textColor="@color/white"
         android:textSize="20sp" />
@@ -66,7 +66,6 @@
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_yellow"
         android:fontFamily="@font/montserrat_bold"
-        android:onClick="onClick"
         android:text="@string/raspaditas"
         android:textColor="@color/white"
         android:textSize="20sp" />
