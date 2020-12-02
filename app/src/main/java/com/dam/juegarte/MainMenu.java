@@ -18,6 +18,7 @@ import com.dam.juegarte.fragments.AchievementsFragment;
 import com.dam.juegarte.fragments.GamesFragment;
 import com.dam.juegarte.fragments.SettingsFragment;
 import com.dam.juegarte.fragments.UserFragment;
+import com.dam.juegarte.stores.AchievementsStore;
 import com.dam.juegarte.stores.GameModesStore;
 import com.dam.juegarte.stores.UserSessionStore;
 import com.google.android.material.tabs.TabItem;
@@ -29,6 +30,7 @@ import java.util.ArrayList;
 public class MainMenu extends AppCompatActivity implements View.OnClickListener {
     UserSessionStore userStore;
     GameModesStore gameModesStore;
+    AchievementsStore achievementsStore;
     GameController gameController;
     QuestionController questionController;
     private Gson gson;
@@ -63,13 +65,16 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         gson = new Gson();
         userStore = new UserSessionStore(this);
         gameModesStore = new GameModesStore(getApplicationContext());
+        achievementsStore = new AchievementsStore(getApplicationContext());
 
         userStore.checkLogin();
         User userData = userStore.getUserData();
 
 
+
         gameController = new GameController(MainMenu.this);
         gameController.loadGameModes();
+        gameController.loadAchievements();
 
         questionController = new QuestionController(MainMenu.this);
         questionController.loadScratchQuestions();

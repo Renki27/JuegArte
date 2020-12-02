@@ -1,6 +1,5 @@
 package com.dam.juegarte.fragments;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
@@ -10,32 +9,30 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchQuestion;
+import com.dam.juegarte.controller.AccountController;
+import com.dam.juegarte.controller.GameController;
+import com.dam.juegarte.stores.UserSessionStore;
 import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
-import org.parceler.Parcel;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import dev.skymansandy.scratchcardlayout.listener.ScratchListener;
 import dev.skymansandy.scratchcardlayout.ui.ScratchCardLayout;
-
 
 
 public class ScratchFragment extends Fragment implements ScratchListener {
@@ -57,6 +54,9 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     Button option4;
     private int t = -1;
     GameComplete gameCompleteF;
+    UserSessionStore userStore;
+    GameController gameController;
+    AccountController accountController;
 
     public ScratchFragment() {
         // Required empty public constructor
@@ -70,6 +70,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         if (getArguments() != null) {
             scratchQuestionsPool = Parcels.unwrap(getArguments().getParcelable("Questions"));
             Collections.shuffle(scratchQuestionsPool);
+
         }
 
         // Inflate the layout for this fragment
@@ -90,6 +91,10 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         option2 = view.findViewById(R.id.btn_option_2);
         option3 = view.findViewById(R.id.btn_option_3);
         option4 = view.findViewById(R.id.btn_option_4);
+
+        userStore = new UserSessionStore(getContext());
+        gameController = new GameController(getContext());
+        accountController = new AccountController(getContext());
 
 
         // Log.d("Scratch", scratchQuestionsPool.toString());
@@ -120,7 +125,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         //  scratchCardLayout.revealScratch();
 
         if (scratchQuestionsPool != null) {
-              Log.d("Question bundle", scratchQuestionsPool.toString());
+            Log.d("Question bundle", scratchQuestionsPool.toString());
 
             Log.d("Size", scratchQuestionsPool.size() + "");
 
@@ -257,24 +262,6 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                 .show();
     }
 
-/*
-    public void deploySuccessDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
-    }
-
- */
 
     public void deploySuccessDialog(String title, String message) {
         MaterialDialog mDialog = new MaterialDialog.Builder(getActivity())
@@ -282,7 +269,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                 .setMessage(message)
                 .setCancelable(false)
                 .setAnimation(R.raw.correct_animation)
-                .setNeutralButton("Next", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         dialogInterface.dismiss();
@@ -302,7 +289,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
                 .setMessage(message)
                 .setCancelable(false)
                 .setAnimation(R.raw.wrong_animation)
-                .setNeutralButton("Next", R.drawable.ic_check, new MaterialDialog.OnClickListener() {
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int which) {
                         dialogInterface.dismiss();
@@ -352,16 +339,6 @@ public class ScratchFragment extends Fragment implements ScratchListener {
 
             public void onFinish() {
                 t = -1;
-              /*  dialog.setTitleText(title)
-                        .setContentText(message)
-                        .setConfirmText(getString(R.string.dialog_ok))
-                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-
-               */
-
-
-
-
                 dialog.dismiss();
 
                 BottomSheetMaterialDialog mDialog = new BottomSheetMaterialDialog.Builder(getActivity())
@@ -380,31 +357,28 @@ public class ScratchFragment extends Fragment implements ScratchListener {
 
                 // Show Dialog
                 mDialog.show();
-
-
-             //   gameCompleted();
+                saveGameData(3, userStore.getUserData().username, totalScore);
+                int points = userStore.getUserData().getPoints() + totalScore;
+                updatePoints(userStore.getUserData().username, points);
             }
         }.start();
-/*
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                getActivity().finish();
-
-            }
-
-        });
-
- */
     }
 
+    public void saveGameData(int idGame, String username, int obtainedPoints) {
+        gameController.saveGameData(idGame, username, obtainedPoints);
+
+    }
+
+    public void updatePoints(String username, int points) {
+        accountController.updatePoints(username, points);
+        userStore.updatePoints(points);
+    }
 
     public void gameCompleted() {
         gameCompleteF = new GameComplete();
-    //    Bundle bundle = new Bundle();
-    //    bundle.putParcelable("Questions", Parcels.wrap(scratchQuestionsPool));
-       // gameCompleteF.setArguments(bundle);
+        //    Bundle bundle = new Bundle();
+        //    bundle.putParcelable("Questions", Parcels.wrap(scratchQuestionsPool));
+        // gameCompleteF.setArguments(bundle);
         assert getFragmentManager() != null;
         getFragmentManager().beginTransaction().replace(R.id.fragment_container, gameCompleteF, "GAME_COMPLETED").addToBackStack("GAME_COMPLETED").commit();
 

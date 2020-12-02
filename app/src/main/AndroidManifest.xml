@@ -20,7 +20,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".TriviaGameActivity"></activity>
+        <activity android:name=".TriviaGameActivity" />
         <activity android:name=".TrueFalseGameActivity" />
         <activity
             android:name=".MainMenu"
