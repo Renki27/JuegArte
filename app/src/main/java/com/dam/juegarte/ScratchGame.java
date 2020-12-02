@@ -9,6 +9,9 @@ import com.dam.juegarte.fragments.ScratchFragment;
 
 import com.dam.juegarte.fragments.ScratchStart;
 import com.dam.juegarte.stores.ScratchQuestionsStore;
+import com.shreyaspatil.MaterialDialog.AbstractDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
 import org.parceler.Parcels;
 
@@ -51,25 +54,27 @@ public class ScratchGame extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                .setTitle(getString(R.string.exit))
+                .setMessage(getString(R.string.game_exit_confirmation))
+                .setCancelable(false)
+                .setAnimation(R.raw.question_mark)
+                .setPositiveButton(getString(R.string.exit), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        ScratchGame.this.finish();
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
 
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
-        dialog.setTitleText(getString(R.string.exit));
-        dialog.setContentText(getString(R.string.game_exit_confirmation));
-        dialog.setConfirmText(getString(R.string.exit));
-        dialog.setCancelText(getString(R.string.cancel));
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                ScratchGame.this.finish();
-            }
-        });
-        dialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-            }
-        });
-        dialog.show();
+        // Show Dialog
+        mDialog.show();
     }
 }

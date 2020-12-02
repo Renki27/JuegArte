@@ -47,7 +47,7 @@ public class AccountController {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-           //             Log.d("onResponse", response);
+                        //             Log.d("onResponse", response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
                             String status = jsonObject.getString("status");
@@ -203,7 +203,74 @@ public class AccountController {
         request.setRetryPolicy(new DefaultRetryPolicy(10000, 1, 1.0f));
         request.setShouldCache(false);
         requestQueue.add(request);
+    }
 
+
+    public void updatePoints(final String username, final int points) {
+
+        RequestQueue requestQueue = Volley.newRequestQueue(context);
+
+
+        StringRequest request = new StringRequest(Request.Method.POST, BASE_URL + "/updateUserPoints.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        //             Log.d("onResponse", response);
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            String status = jsonObject.getString("status");
+                            String message = jsonObject.getString("message");
+                            if (status.equals("Success")) {
+                                Log.d("points", "Update points success");
+                            } else {
+                                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(context, R.string.sign_up_error, Toast.LENGTH_SHORT).show();
+
+                        NetworkResponse response = error.networkResponse;
+                        String errorMsg = "";
+                        if (response != null && response.data != null) {
+                            String errorString = new String(response.data);
+                            Log.i("log error", errorString);
+                        }
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("username", username);
+                params.put("points", String.valueOf(points));
+                Log.i("sending ", params.toString());
+                return params;
+            }
+/*
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
+
+                Log.d("getHeaders", params.toString());
+                return params;
+            }
+
+ */
+        };
+        // Add the realibility on the connection.
+        request.setRetryPolicy(new DefaultRetryPolicy(10000, 1, 1.0f));
+        request.setShouldCache(false);
+        requestQueue.add(request);
 
     }
 
