@@ -1609,7 +1609,9 @@ int drawable notify_panel_notification_icon_bg 0x0
 int drawable test_custom_background 0x0
 int drawable tooltip_frame_dark 0x0
 int drawable tooltip_frame_light 0x0
+int font cocogoose 0x0
 int font montserrat 0x0
+int font montserrat_bold 0x0
 int id BOTTOM_END 0x0
 int id BOTTOM_START 0x0
 int id NO_DEBUG 0x0

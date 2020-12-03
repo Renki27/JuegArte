@@ -32,6 +32,7 @@
             android:layout_below="@id/animation_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cocogoose"
             style="@style/MaterialDialog.Title"
             tools:text="Title" />
 
@@ -59,8 +60,9 @@
                 android:id="@+id/button_negative"
                 style="@style/MaterialDialog.NegativeButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 app:iconGravity="textStart"
+                android:fontFamily="@font/montserrat"
                 tools:text="Negative"
                 android:layout_weight="0.5" />
 
@@ -68,7 +70,8 @@
                 android:id="@+id/button_positive"
                 style="@style/MaterialDialog.PositiveButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
+                android:fontFamily="@font/montserrat"
                 android:layout_weight="0.5"
                 app:iconGravity="textStart"
                 tools:text="Positive" />
@@ -91,8 +94,9 @@
                 android:id="@+id/button_neutral"
                 style="@style/MaterialDialog.PositiveButton"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/montserrat"
                 app:iconGravity="textStart"
                 tools:text="Positive" />
 

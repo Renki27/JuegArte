@@ -21,7 +21,9 @@ dimen radiusTop
 dimen text_message_size
 dimen text_title_size
 drawable bottomsheet_back
+font cocogoose
 font montserrat
+font montserrat_bold
 id animation_view
 id button_negative
 id button_neutral

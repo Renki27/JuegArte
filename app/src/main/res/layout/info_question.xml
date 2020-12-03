@@ -3,6 +3,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:JuegArte="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
         <LinearLayout
@@ -33,7 +34,9 @@
             <Button
                 android:id="@+id/btn_continue"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                JuegArte:backgroundTint="@null"
+                android:background="@drawable/button_green"
+                android:layout_height="70dp"
                 android:text="Continue"
                 android:textSize="20dp"
                 android:layout_gravity="center"
