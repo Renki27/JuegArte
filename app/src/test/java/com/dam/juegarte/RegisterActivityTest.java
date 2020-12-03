@@ -14,20 +14,30 @@ import static org.junit.Assert.*;
 
 public class RegisterActivityTest {
 
-    private static final String FAKE_STRING = "Register was successful";
+
+    private static final String FAKE_STRING = "Account already created";
+    private static final String FAKE_STRINGTWO = "Account created";
 
     @Mock
     Context mMockContext;
 
     @Test
-    public void readStringFromContext_LocalizedString() {
+    public void registerNewDataEntered() {
         RegisterActivity myObjectUnderTest = new RegisterActivity(mMockContext);
 
-        // Login Correct
-//        String result = myObjectUnderTest.validate("user", "user");
+        // Register Correct
+        String result = myObjectUnderTest.validateDataEntered("user", "user", "password", "password");
 
-        //Login Incorrect
-        String result = myObjectUnderTest.validate("email", "user", "password", "password" );
+        // ...then the result should be the expected one.
+        assertThat(result, is(FAKE_STRINGTWO));
+    }
+
+    @Test
+    public void registerAlreadyExist() {
+        RegisterActivity myObjectUnderTest = new RegisterActivity(mMockContext);
+
+        //Register already did it
+        String result = myObjectUnderTest.validate("email", "user");
 
         // ...then the result should be the expected one.
         assertThat(result, is(FAKE_STRING));

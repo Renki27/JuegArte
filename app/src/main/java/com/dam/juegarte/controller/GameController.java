@@ -15,10 +15,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.dam.juegarte.Achievements;
 import com.dam.juegarte.GameMode;
-import com.dam.juegarte.User;
+import com.dam.juegarte.R;
 import com.dam.juegarte.stores.AchievementsStore;
 import com.dam.juegarte.stores.GameModesStore;
-import com.dam.juegarte.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -229,7 +228,7 @@ public class GameController {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, R.string.sign_in_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, R.string.achievementsnoloaded, Toast.LENGTH_SHORT).show();
 
                         NetworkResponse response = error.networkResponse;
                         String errorMsg = "";

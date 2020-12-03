@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:JuegArte="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -49,6 +50,7 @@
             <Button
                 android:id="@+id/btn_option_1"
                 android:layout_width="wrap_content"
+                JuegArte:backgroundTint="@null"
                 android:layout_height="80dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
@@ -61,6 +63,7 @@
             <Button
                 android:id="@+id/btn_option_2"
                 android:layout_width="wrap_content"
+                JuegArte:backgroundTint="@null"
                 android:layout_height="80dp"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
@@ -81,6 +84,7 @@
                 android:id="@+id/btn_option_3"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
+                JuegArte:backgroundTint="@null"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:text="Button"
@@ -93,6 +97,7 @@
                 android:id="@+id/btn_option_4"
                 android:layout_width="wrap_content"
                 android:layout_height="80dp"
+                JuegArte:backgroundTint="@null"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="10dp"
                 android:text="Button"

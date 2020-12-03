@@ -24,11 +24,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     AccountController accountController;
     private static final String BASE_URL = "http://10.0.2.2/juegarte-API";
 
-
     public LoginActivity() {
+
     }
 
     public LoginActivity(Context context) {
+
     }
 
     @Override
@@ -89,9 +90,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     public String validate(String userName, String password) {
-        if (userName.equals("user") && password.equals("user"))
+        if (userName.equals("user") && password.equals("user")) {
             return "Login was successful";
-        else
+        } else if (userName.equals("") && password.equals("")){
+            return "Void data";
+        } else {
             return "Invalid login!";
+        }
+
     }
 }

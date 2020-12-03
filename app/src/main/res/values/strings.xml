@@ -61,5 +61,8 @@
     <string name="trivia_quiz">Trivia Quiz</string>
     <string name="success">Success!</string>
     <string name="saving_error">Error saving game data</string>
+    <string name="help_and_assistance">Help and assistance</string>
+    <string name="about_us">About Us</string>
+    <string name="achievementsnoloaded">Achievements no Loaded</string>
 
 </resources>

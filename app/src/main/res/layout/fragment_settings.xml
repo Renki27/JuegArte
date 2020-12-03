@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:JuegArte="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl_settings"
@@ -34,10 +35,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="Sound Effects"
-            android:textSize="26sp"
             android:fontFamily="@font/montserrat"
-            />
+            android:text="Sound Effects"
+            android:textSize="26sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -69,13 +69,15 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
+        JuegArte:backgroundTint="@null"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_white"
         android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:onClick="onClick"
-        android:text="Help and assistance"
+        android:text="@string/help_and_assistance"
         android:textSize="20sp" />
 
     <Button
@@ -84,13 +86,15 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="center_horizontal"
+        JuegArte:backgroundTint="@null"
         android:layout_marginStart="40dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="40dp"
         android:background="@drawable/button_white"
         android:fontFamily="@font/montserrat"
+        android:textColor="@color/black"
         android:onClick="onClick"
-        android:text="About Us"
+        android:text="@string/about_us"
         android:textSize="20sp" />
 
 
