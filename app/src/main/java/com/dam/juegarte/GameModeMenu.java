@@ -1,5 +1,6 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,14 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
     Button gameMode1;
     Button gameMode2;
     Button gameMode3;
+
+    public GameModeMenu(){
+
+    }
+
+    public GameModeMenu(Context mMockContext) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,23 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
     private void startScratchGame() {
         Intent intent = new Intent(this, ScratchGame.class);
         startActivity(intent);
+    }
+
+    //For testing
+    public String selectGameMode(String selection){
+        String trivia = "trivia";
+        String scratch = "scratch";
+        String tof = "tof";
+
+        if (selection == trivia){
+            return "TRIVIA";
+        } else if (selection == scratch) {
+            return "SCRATCH";
+        } else if (selection == tof){
+            return "TRUEORFALSE";
+        } else {
+            return "failure selection";
+        }
     }
 
 

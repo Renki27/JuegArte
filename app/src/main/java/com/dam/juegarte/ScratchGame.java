@@ -1,31 +1,26 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
-import com.dam.juegarte.fragments.ScratchFragment;
 
 import com.dam.juegarte.fragments.ScratchStart;
-import com.dam.juegarte.stores.ScratchQuestionsStore;
-import com.shreyaspatil.MaterialDialog.AbstractDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
-
-import org.parceler.Parcels;
-
-import java.util.ArrayList;
-
-import cn.pedant.SweetAlert.SweetAlertDialog;
 
 public class ScratchGame extends AppCompatActivity {
 
 
     ScratchStart scratchStart;
 
+    public ScratchGame(){
 
+    }
 
+    public ScratchGame(Context context){
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +45,27 @@ public class ScratchGame extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().add(R.id.fragment_scratch, fragmentScratch).commit();
 
 */
+    }
+
+    public String questionBase(String optionCorrect){
+
+        String optionA = "A";
+        String optionB = "B";
+        String optionC = "C";
+        String optionD = "D";
+
+        if(optionCorrect == optionA){
+            return "A";
+        } else if(optionCorrect == optionB){
+            return "B";
+        } else if(optionCorrect == optionC){
+            return "C";
+        } else if(optionCorrect == optionD){
+            return "D";
+        } else {
+            return "ERROR";
+        }
+
     }
 
     @Override
