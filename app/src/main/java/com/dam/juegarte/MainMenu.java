@@ -237,42 +237,4 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     }
 
-/*
-    @Override
-<<<<<<< HEAD
-    protected void onStop() {
-        super.onStop();
-        if (mPlayer.isPlaying()) {
-            mPlayer.stop();
-        }
-
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        if (mPlayer.isPlaying()) {
-            mPlayer.stop();
-        }
-    }
-
-    @Override
-    public void onClick(View view) {
-=======
-    protected void onStart() {
-        super.onStart();
-        if (authenticate() == true) {
-
-        }
-    }
->>>>>>> master
-
-    public boolean authenticate() {
-        return userStore.getUserLoggedIn();
-    }
-<<<<<<< HEAD
-
-=======
-*/
->>>>>>> master
 }
