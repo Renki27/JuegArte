@@ -1,6 +1,5 @@
 package com.dam.juegarte;
 
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -52,8 +51,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        play(this);
-
         tlTabs = findViewById(R.id.tl_tabs);
 
         vPager = findViewById(R.id.vp_pager);
@@ -65,7 +62,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
         setupViewPager();
         setupTabIcons();
-
 
         gson = new Gson();
         userStore = UserSessionStore.getInstance(this);
@@ -86,17 +82,8 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         questionController.loadTriviaQuestions();
         questionController.loadTrueFalseQuestions();
 
-/*
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        String email = intent.getStringExtra("email");
-        int points = Integer.parseInt(intent.getStringExtra("points"));
-        String image = intent.getStringExtra("image");
-        User userData = new User(username, email, points, image);
-
- */
-
-
+        AudioPlayer audioPlayer = AudioPlayer.getInstance(this);
+        audioPlayer.play(this);
 
     }
 
@@ -147,7 +134,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private void logout() {
         userStore.setUserLoggedIn(false);
         userStore.clearUserData();
-        stop();
         //  gameModesStore.clearGameModes();
            Intent intent = new Intent(this, LoginActivity.class);
            startActivity(intent);
@@ -183,34 +169,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     // public method to be accessed by host activity.
     public void sendGameModes(final GameMode gameModes) {
 
-    }
-
-    public void play(Context context) {
-        if (mPlayer == null) {
-            mPlayer = MediaPlayer.create(context, R.raw.song);
-            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    stopPlayer();
-                }
-            });
-        }
-        mPlayer.start();
-    }
-    public void pause() {
-        if (mPlayer != null) {
-            mPlayer.stop();
-        }
-    }
-    public void  stop() {
-        stopPlayer();
-    }
-
-    private void stopPlayer(){
-        if (mPlayer != null) {
-            mPlayer.release();
-            mPlayer = null;
-        }
     }
 
     @Override

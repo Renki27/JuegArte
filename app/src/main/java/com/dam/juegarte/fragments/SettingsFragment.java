@@ -11,8 +11,8 @@ import android.widget.Switch;
 
 import androidx.fragment.app.Fragment;
 
+import com.dam.juegarte.AudioPlayer;
 import com.dam.juegarte.ExampleDialog;
-import com.dam.juegarte.MainMenu;
 import com.dam.juegarte.R;
 
 public class SettingsFragment extends Fragment {
@@ -25,7 +25,7 @@ public class SettingsFragment extends Fragment {
     private Button btnHelp;
     private Button btnAbout;
 
-    MainMenu mainMenu;
+    AudioPlayer audioPlayer;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -42,7 +42,7 @@ public class SettingsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mainMenu = new MainMenu();
+        audioPlayer = AudioPlayer.getInstance(getContext());
     }
 
     @Override
@@ -60,11 +60,11 @@ public class SettingsFragment extends Fragment {
         switchMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(playing == true){
-                    mainMenu.pause();
+                if(playing){
+                    audioPlayer.pause();
                     playing = false;
                 } else {
-                    mainMenu.play(getContext());
+                    audioPlayer.play(getContext());
                     playing = true;
                 }
             }
@@ -81,6 +81,7 @@ public class SettingsFragment extends Fragment {
                 Uri uri = Uri.parse("http://https://support.google.com/googleplay/?hl=es#topic=3364260/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
+                audioPlayer.pause();
             }
         });
 
