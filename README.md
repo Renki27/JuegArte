@@ -16,7 +16,7 @@ Supervised by:
     ****Important: Install the entire directory, don't move the files to the principal directory. The url path must be like this: "htdocs/juegarte-API".*****
   5. Go to phpmyadmin (if not installed, follow this link: https://www.jcchouinard.com/install-mysql-and-phpmyadmin-with-xampp/).
   6. Create a database with the name "jugarte-db".
-  7. Into the database, import the file "databaseData.sql" located in the directory "juegarte-API".
+  7. Into the database, import the file "juegarte_db_script.sql" located in the directory "juegarte-API".
   After importing, database is ready, and the game could be run in the AVD Emulator.
   
   
