@@ -171,40 +171,48 @@ public class TrueFalseGameActivity extends AppCompatActivity {
 //                    finish();
 //                }
 //            });
+            int total = 500;
             deployEndDialog("Game complete!", "Your total score is: " + points);
         }
     }
 
     public void deploySuccessDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(TrueFalseGameActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.correct_animation)
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        recall();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
+
     }
 
     public void deployErrorDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(TrueFalseGameActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.wrong_animation)
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        recall();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
     }
 
     public void deployEndDialog(final String title, final String message) {

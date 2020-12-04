@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -225,10 +226,15 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     protected void onPause() {
         super.onPause();
-        if (mPlayer.isPlaying()) {
-              mPlayer.stop();
+        try {
+            if ((mPlayer != null) && (mPlayer.isPlaying())) {
+                mPlayer.stop();
 
+            }
+        } catch (Exception e) {
+            Log.d("Error", e.getMessage());
         }
+
     }
 
 /*

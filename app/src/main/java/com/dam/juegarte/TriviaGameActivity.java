@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.bumptech.glide.Glide;
 import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.stores.TriviaQuestionsStore;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -153,41 +155,49 @@ public class TriviaGameActivity extends AppCompatActivity {
             setQuestion(triviaQuestionsPool.get(counter));
         } else {
             //Toast.makeText(getActivity(), "Your total score is: " + totalScore, Toast.LENGTH_SHORT).show();
-            int total = 100 * triviaQuestionsPool.size();
+          //  int total = 100 * triviaQuestionsPool.size();
+            int total = 500;
             deployEndDialog("Game complete!", "Your total score is: " + totalScore + " of " + total);
         }
     }
 
     public void deploySuccessDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(TriviaGameActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.correct_animation)
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        recall();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
+
     }
 
     public void deployErrorDialog(String title, String message) {
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE);
-        dialog.setTitleText(title);
-        dialog.setContentText(message);
-        dialog.setConfirmText("Next");
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                recall();
-            }
-        });
-        dialog.setCancelable(false);
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(TriviaGameActivity.this)
+                .setTitle(title)
+                .setMessage(message)
+                .setCancelable(false)
+                .setAnimation(R.raw.wrong_animation)
+                .setNeutralButton("Next", new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        recall();
+                    }
+                })
+                .build();
+
+        // Show Dialog
+        mDialog.show();
     }
 
     public void deployEndDialog(final String title, final String message) {
@@ -245,25 +255,27 @@ public class TriviaGameActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
-        dialog.setTitleText(getString(R.string.exit));
-        dialog.setContentText(getString(R.string.game_exit_confirmation));
-        dialog.setConfirmText(getString(R.string.exit));
-        dialog.setCancelText(getString(R.string.cancel));
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                finish();
-            }
-        });
-        dialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-            }
-        });
-        dialog.show();
+        MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                .setTitle(getString(R.string.exit))
+                .setMessage(getString(R.string.game_exit_confirmation))
+                .setCancelable(false)
+                .setAnimation(R.raw.question_mark)
+                .setPositiveButton(getString(R.string.exit), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        finish();
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
+
+        mDialog.show();
     }
 
 }
