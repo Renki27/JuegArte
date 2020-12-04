@@ -88,6 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         startActivity(intent);
     }
 
+    //    test method
     public String validate(String userName, String password) {
         if (userName.equals("user") && password.equals("user")) {
             return "Login was successful";

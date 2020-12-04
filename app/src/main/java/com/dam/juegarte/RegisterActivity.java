@@ -114,13 +114,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     }
 
+//    test method
     public String validateDataEntered(String email, String username, String password, String passwordConfirm) {
         if (!email.isEmpty() && !username.isEmpty() && !password.isEmpty() && !passwordConfirm.isEmpty())
             return "Account created";
         else
             return "Invalid register!";
     }
-
+    //    test method
     public String validate(String email, String username) {
         if (email.equals("email") && username.equals("user"))
             return "Account already created";

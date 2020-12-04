@@ -47,6 +47,8 @@ public class ScratchGame extends AppCompatActivity {
 */
     }
 
+
+    //    test method
     public String questionBase(String optionCorrect){
 
         String optionA = "A";

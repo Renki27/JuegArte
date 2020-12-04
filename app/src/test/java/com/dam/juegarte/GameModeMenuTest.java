@@ -23,7 +23,7 @@ public class GameModeMenuTest {
     Context mMockContext;
 
     @Test
-    public void gameselectedtrivia() {
+    public void gameSelectedTrivia() {
         GameModeMenu myObjectUnderTest = new GameModeMenu(mMockContext);
 
         // Correct selection of game
@@ -34,7 +34,7 @@ public class GameModeMenuTest {
     }
 
     @Test
-    public void gameselectedscratch() {
+    public void gameSelectedScratch() {
         GameModeMenu myObjectUnderTest = new GameModeMenu(mMockContext);
 
         // Correct selection of game
@@ -45,7 +45,7 @@ public class GameModeMenuTest {
     }
 
     @Test
-    public void gameselectedtof() {
+    public void gameSelectedTof() {
         GameModeMenu myObjectUnderTest = new GameModeMenu(mMockContext);
 
         // Correct selection of game
@@ -56,7 +56,7 @@ public class GameModeMenuTest {
     }
 
     @Test
-    public void gameselectederror() {
+    public void gamesSelectedError() {
         GameModeMenu myObjectUnderTest = new GameModeMenu(mMockContext);
 
         // Correct selection of game
