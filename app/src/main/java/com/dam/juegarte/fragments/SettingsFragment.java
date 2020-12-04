@@ -1,26 +1,19 @@
 package com.dam.juegarte.fragments;
 
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
-import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 import com.dam.juegarte.ExampleDialog;
 import com.dam.juegarte.MainMenu;
 import com.dam.juegarte.R;
-import com.dam.juegarte.SplashScreen;
-import com.dam.juegarte.TrueFalseGameActivity;
 
 public class SettingsFragment extends Fragment {
 
@@ -29,7 +22,6 @@ public class SettingsFragment extends Fragment {
     private Switch switchSoundEff;
     private Switch switchMusic;
     private boolean playing = true;
-    private boolean playingFirst = true;
     private Button btnHelp;
     private Button btnAbout;
 
@@ -68,7 +60,7 @@ public class SettingsFragment extends Fragment {
         switchMusic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(playing){
+                if(playing == true){
                     mainMenu.pause();
                     playing = false;
                 } else {
