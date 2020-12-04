@@ -199,7 +199,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
     public void pause() {
         if (mPlayer != null) {
-            mPlayer.pause();
+            mPlayer.stop();
         }
     }
     public void  stop() {
