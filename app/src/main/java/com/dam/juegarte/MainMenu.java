@@ -84,19 +84,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         questionController.loadScratchQuestions();
         questionController.loadTriviaQuestions();
         questionController.loadTrueFalseQuestions();
-
-/*
-        Intent intent = getIntent();
-        String username = intent.getStringExtra("username");
-        String email = intent.getStringExtra("email");
-        int points = Integer.parseInt(intent.getStringExtra("points"));
-        String image = intent.getStringExtra("image");
-        User userData = new User(username, email, points, image);
-
- */
-
-
-
     }
 
     private void setupViewPager() {
@@ -152,21 +139,6 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
            startActivity(intent);
           finish();
     }
-
-    @Override
-    public void onClick(View view) {
-        /*switch (view.getId()) {
-            case R.id.btn_profile:
-                openProfile();
-                break;
-            case R.id.btn_games:
-                selectGameMenu();
-            default:
-                break;
-        }*/
-
-    }
-
     private void selectGameMenu() {
         Intent intent = new Intent(this, GameModeMenu.class);
         startActivity(intent);
@@ -198,7 +170,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
     public void pause() {
         if (mPlayer != null) {
-            mPlayer.pause();
+            mPlayer.stop();
         }
     }
     public void  stop() {
@@ -227,21 +199,11 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         super.onPause();
         if (mPlayer.isPlaying()) {
               mPlayer.stop();
-
         }
     }
 
-/*
     @Override
-    protected void onStart() {
-        super.onStart();
-        if (authenticate() == true) {
+    public void onClick(View view) {
 
-        }
     }
-
-    public boolean authenticate() {
-        return userStore.getUserLoggedIn();
-    }
-*/
 }
