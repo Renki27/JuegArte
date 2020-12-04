@@ -146,6 +146,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private void logout() {
         userStore.setUserLoggedIn(false);
         userStore.clearUserData();
+        stop();
         //  gameModesStore.clearGameModes();
         //   Intent intent = new Intent(this, LoginActivity.class);
         //   startActivity(intent);
@@ -203,10 +204,30 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     public void  stop() {
         stopPlayer();
     }
+
     private void stopPlayer(){
         if (mPlayer != null) {
             mPlayer.release();
             mPlayer = null;
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        if (mPlayer != null && mPlayer.isPlaying()) {
+            mPlayer.stop();
+            mPlayer.release();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (mPlayer.isPlaying()) {
+              mPlayer.stop();
+
         }
     }
 
