@@ -13,8 +13,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.dam.juegarte.controller.AccountController;
+import com.dam.juegarte.controller.GameController;
 import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.stores.TrueFalseQuestionStore;
+import com.dam.juegarte.stores.UserSessionStore;
+import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
+import com.shreyaspatil.MaterialDialog.MaterialDialog;
+import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -29,7 +35,9 @@ public class TrueFalseGameActivity extends AppCompatActivity {
     private ImageButton btn_false;
     private ImageButton btn_true;
     private int num_question;
-    public int points;
+
+    int points;
+    int totalScore;
 
     public Dialog info;
     private TextView tv_state;
@@ -43,6 +51,10 @@ public class TrueFalseGameActivity extends AppCompatActivity {
 
     private int t = -1;
 
+    UserSessionStore userStore;
+    GameController gameController;
+    AccountController accountController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +65,8 @@ public class TrueFalseGameActivity extends AppCompatActivity {
         btn_false = findViewById(R.id.false_btn);
         btn_true = findViewById(R.id.true_btn);
         num_question = 0;
-        points = 0;
+        points = 100;
+        totalScore = 0;
 
         info = new Dialog(this);
 
@@ -70,37 +83,40 @@ public class TrueFalseGameActivity extends AppCompatActivity {
         tv_info = info.findViewById(R.id.tv_info);
         btn_continue = info.findViewById(R.id.btn_continue);
 
-
-
         if (trueFalseQuestionsPool != null){
             Collections.shuffle(trueFalseQuestionsPool);
             setQuestion(trueFalseQuestionsPool.get(num_question));
         }
 
+        userStore = new UserSessionStore(this);
+        gameController = new GameController(this);
+        accountController = new AccountController(this);
+
     }
 
     @Override
     public void onBackPressed() {
+        MaterialDialog mDialog = new MaterialDialog.Builder(this)
+                .setTitle(getString(R.string.exit))
+                .setMessage(getString(R.string.game_exit_confirmation))
+                .setCancelable(false)
+                .setAnimation(R.raw.question_mark)
+                .setPositiveButton(getString(R.string.exit), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                        finish();
+                    }
+                })
+                .setNegativeButton(getString(R.string.cancel), new MaterialDialog.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int which) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .build();
 
-        SweetAlertDialog dialog = new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE);
-        dialog.setTitleText(getString(R.string.exit));
-        dialog.setContentText(getString(R.string.game_exit_confirmation));
-        dialog.setConfirmText(getString(R.string.exit));
-        dialog.setCancelText(getString(R.string.cancel));
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                finish();
-            }
-        });
-        dialog.setCancelClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-            }
-        });
-        dialog.show();
+        mDialog.show();
     }
 
     public void setQuestion(final TrueFalseQuestion question){
@@ -114,13 +130,12 @@ public class TrueFalseGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (correct_answer.equals("true")){
-                    points = points + 5;
                     num_question++;
-                    //showCorrect();
+                    totalScore += points;
                     deploySuccessDialog(getString(R.string.question_info), question.getQuestionInformation());
                 } else {
                     num_question++;
-                    //showIncorrect();
+                    totalScore += 0;
                     deployErrorDialog(getString(R.string.question_info), question.getQuestionInformation());
                 }
             }
@@ -143,7 +158,7 @@ public class TrueFalseGameActivity extends AppCompatActivity {
     }
 
     public void recall(){
-        if (num_question < trueFalseQuestionsPool.size()){
+        if (num_question < 5){
             setQuestion(trueFalseQuestionsPool.get(num_question));
         } else {
 //            tv_state.setText("Game completed!");
@@ -229,20 +244,39 @@ public class TrueFalseGameActivity extends AppCompatActivity {
 
             public void onFinish() {
                 t = -1;
-                dialog.setTitleText(title)
-                        .setContentText(message)
-                        .setConfirmText(getString(R.string.dialog_ok))
-                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                dialog.dismiss();
+
+                BottomSheetMaterialDialog mDialog = new BottomSheetMaterialDialog.Builder(TrueFalseGameActivity.this)
+                        .setTitle(title)
+                        .setMessage(message)
+                        .setCancelable(false)
+                        .setAnimation(R.raw.fireworks_animation)
+                        .setNeutralButton(getString(R.string.exit), new BottomSheetMaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                                finish();
+                            }
+                        })
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+                saveGameData(2, userStore.getUserData().username, totalScore);
+                int points = userStore.getUserData().getPoints() + totalScore;
+                updatePoints(userStore.getUserData().username, points);
             }
         }.start();
+    }
 
-        dialog.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-            @Override
-            public void onClick(SweetAlertDialog sweetAlertDialog) {
-                sweetAlertDialog.dismiss();
-                finish();
-            }
-        });
+    public void saveGameData(int idGame, String username, int obtainedPoints) {
+        gameController.saveGameData(idGame, username, obtainedPoints);
+
+    }
+
+    public void updatePoints(String username, int points) {
+        accountController.updatePoints(username, points);
+        userStore.updatePoints(points);
     }
 
 //    public void showCorrect(){

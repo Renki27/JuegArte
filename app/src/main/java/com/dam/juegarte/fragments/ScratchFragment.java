@@ -238,7 +238,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     }
 
     public void recall() {
-        if (counter < scratchQuestionsPool.size()) {
+        if (counter < 5) {
             setCurrentQuestion(scratchQuestionsPool.get(counter));
         } else {
             //Toast.makeText(getActivity(), "Your total score is: " + totalScore, Toast.LENGTH_SHORT).show();

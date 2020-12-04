@@ -1,18 +1,5 @@
 com/shreyaspatil/MaterialDialog/interfaces/DialogInterface.java
  com.shreyaspatil.MaterialDialog.interfaces.DialogInterface
-com/shreyaspatil/MaterialDialog/BuildConfig.java
- com.shreyaspatil.MaterialDialog.BuildConfig
-com/shreyaspatil/MaterialDialog/interfaces/OnShowListener.java
- com.shreyaspatil.MaterialDialog.interfaces.OnShowListener
-com/shreyaspatil/MaterialDialog/model/DialogButton.java
- com.shreyaspatil.MaterialDialog.model.DialogButton
-com/shreyaspatil/MaterialDialog/interfaces/OnCancelListener.java
- com.shreyaspatil.MaterialDialog.interfaces.OnCancelListener
-com/shreyaspatil/MaterialDialog/MaterialDialog.java
- com.shreyaspatil.MaterialDialog.MaterialDialog
- com.shreyaspatil.MaterialDialog.MaterialDialog$Builder
-com/shreyaspatil/MaterialDialog/interfaces/OnDismissListener.java
- com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener
 com/shreyaspatil/MaterialDialog/BottomSheetMaterialDialog.java
  com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog
  com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog$1
@@ -28,3 +15,16 @@ com/shreyaspatil/MaterialDialog/AbstractDialog.java
  com.shreyaspatil.MaterialDialog.AbstractDialog$5
  com.shreyaspatil.MaterialDialog.AbstractDialog$6
  com.shreyaspatil.MaterialDialog.AbstractDialog$OnClickListener
+com/shreyaspatil/MaterialDialog/model/DialogButton.java
+ com.shreyaspatil.MaterialDialog.model.DialogButton
+com/shreyaspatil/MaterialDialog/interfaces/OnCancelListener.java
+ com.shreyaspatil.MaterialDialog.interfaces.OnCancelListener
+com/shreyaspatil/MaterialDialog/MaterialDialog.java
+ com.shreyaspatil.MaterialDialog.MaterialDialog
+ com.shreyaspatil.MaterialDialog.MaterialDialog$Builder
+com/shreyaspatil/MaterialDialog/interfaces/OnDismissListener.java
+ com.shreyaspatil.MaterialDialog.interfaces.OnDismissListener
+com/shreyaspatil/MaterialDialog/interfaces/OnShowListener.java
+ com.shreyaspatil.MaterialDialog.interfaces.OnShowListener
+com/shreyaspatil/MaterialDialog/BuildConfig.java
+ com.shreyaspatil.MaterialDialog.BuildConfig

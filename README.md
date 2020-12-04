@@ -19,5 +19,7 @@ Supervised by:
   7. Into the database, import the file "juegarte_db_script.sql" located in the directory "juegarte-API".
   After importing, database is ready, and the game could be run in the AVD Emulator.
   
+  AVD recommendation: Pixel 4 or upper, or 6,0" screen.
+  
   
   
