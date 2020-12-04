@@ -1,6 +1,8 @@
 package com.dam.juegarte;
 
+import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -42,14 +44,16 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     private TabItem tiSettings;
     private TabItem tiUser;
 
+    MediaPlayer mPlayer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        play(this);
+
         tlTabs = findViewById(R.id.tl_tabs);
-
-
 
         vPager = findViewById(R.id.vp_pager);
 
@@ -177,6 +181,33 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     // public method to be accessed by host activity.
     public void sendGameModes(final GameMode gameModes) {
 
+    }
+
+    public void play(Context context) {
+        if (mPlayer == null) {
+            mPlayer = MediaPlayer.create(context, R.raw.song);
+            mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    stopPlayer();
+                }
+            });
+        }
+        mPlayer.start();
+    }
+    public void pause() {
+        if (mPlayer != null) {
+            mPlayer.pause();
+        }
+    }
+    public void  stop() {
+        stopPlayer();
+    }
+    private void stopPlayer(){
+        if (mPlayer != null) {
+            mPlayer.release();
+            mPlayer = null;
+        }
     }
 
 /*

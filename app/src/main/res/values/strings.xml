@@ -63,6 +63,6 @@
     <string name="saving_error">Error saving game data</string>
     <string name="help_and_assistance">Help and assistance</string>
     <string name="about_us">About Us</string>
-    <string name="achievementsnoloaded">Achievements no Loaded</string>
+    <string name="music">Music</string>
 
 </resources>
