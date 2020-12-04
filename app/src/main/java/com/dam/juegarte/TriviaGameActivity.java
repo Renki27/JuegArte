@@ -60,7 +60,7 @@ public class TriviaGameActivity extends AppCompatActivity {
 
         //questionController = new QuestionController(this);
 
-        questionStore = new TriviaQuestionsStore(this);
+        questionStore = TriviaQuestionsStore.getInstance(this);
 
         //questionController.loadTriviaQuestions();
 

@@ -71,7 +71,7 @@ public class TrueFalseGameActivity extends AppCompatActivity {
         info = new Dialog(this);
 
         questionController = new QuestionController(this);
-        questionStore = new TrueFalseQuestionStore(this);
+        questionStore = TrueFalseQuestionStore.getInstance(this);
 
         questionController.loadTrueFalseQuestions();
         trueFalseQuestionsPool = questionStore.getTrueFalseQuestions();
