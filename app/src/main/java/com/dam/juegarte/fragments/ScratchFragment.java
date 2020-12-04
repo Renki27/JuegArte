@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.RequestManager;
 import com.dam.juegarte.R;
 import com.dam.juegarte.ScratchQuestion;
+import com.dam.juegarte.UserAchievements;
 import com.dam.juegarte.controller.AccountController;
 import com.dam.juegarte.controller.GameController;
 import com.dam.juegarte.stores.UserSessionStore;
@@ -57,6 +58,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
     UserSessionStore userStore;
     GameController gameController;
     AccountController accountController;
+    UserAchievements userAchievements;
 
     public ScratchFragment() {
         // Required empty public constructor
@@ -242,7 +244,8 @@ public class ScratchFragment extends Fragment implements ScratchListener {
             setCurrentQuestion(scratchQuestionsPool.get(counter));
         } else {
             //Toast.makeText(getActivity(), "Your total score is: " + totalScore, Toast.LENGTH_SHORT).show();
-            int total = 100 * scratchQuestionsPool.size();
+            //int total = 100 * scratchQuestionsPool.size();
+            int total = 500;
             deployEndDialog("Game complete!", "Your total score is: " + totalScore + " of " + total);
         }
     }
@@ -420,6 +423,8 @@ public class ScratchFragment extends Fragment implements ScratchListener {
             if (i >= 30) {
                 points = (130 - i);
                 score.setText("Score: " + points);
+            } else {
+                points = 100;
             }
 
 
