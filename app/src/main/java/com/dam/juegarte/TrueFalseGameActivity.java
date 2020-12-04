@@ -145,11 +145,12 @@ public class TrueFalseGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (correct_answer.equals("false")){
-                    points = points + 5;
                     num_question++;
+                    totalScore += points;
                     deploySuccessDialog(getString(R.string.question_info), question.getQuestionInformation());
                 } else {
                     num_question++;
+                    totalScore += 0;
                     deployErrorDialog(getString(R.string.question_info), question.getQuestionInformation());
                 }
             }
@@ -172,7 +173,7 @@ public class TrueFalseGameActivity extends AppCompatActivity {
 //                }
 //            });
             int total = 500;
-            deployEndDialog("Game complete!", "Your total score is: " + points);
+            deployEndDialog("Game complete!", "Your total score is: " + points + " of " + total);
         }
     }
 

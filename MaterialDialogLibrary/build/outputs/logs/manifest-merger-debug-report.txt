@@ -1,37 +1,37 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
 	package
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:2:5-46
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:2:5-46
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:1-2:49
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml:1:11-69
 uses-sdk
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		ADDED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
-		INJECTED from D:\Personal Docs\UCR\2020\UCR II 2020\TM6100 Taller de Multimedia\JuegArte\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Rebeca\AndroidStudioProjects\JuegArte\MaterialDialogLibrary\src\main\AndroidManifest.xml
