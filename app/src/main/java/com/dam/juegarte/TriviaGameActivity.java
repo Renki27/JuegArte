@@ -154,8 +154,6 @@ public class TriviaGameActivity extends AppCompatActivity {
         if (counter < 5) {
             setQuestion(triviaQuestionsPool.get(counter));
         } else {
-            //Toast.makeText(getActivity(), "Your total score is: " + totalScore, Toast.LENGTH_SHORT).show();
-          //  int total = 100 * triviaQuestionsPool.size();
             int total = 500;
             deployEndDialog("Game complete!", "Your total score is: " + totalScore + " of " + total);
         }
