@@ -94,7 +94,7 @@ public class ScratchFragment extends Fragment implements ScratchListener {
         option3 = view.findViewById(R.id.btn_option_3);
         option4 = view.findViewById(R.id.btn_option_4);
 
-        userStore = new UserSessionStore(getContext());
+        userStore = UserSessionStore.getInstance(getContext());
         gameController = new GameController(getContext());
         accountController = new AccountController(getContext());
 

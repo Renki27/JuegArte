@@ -136,7 +136,7 @@ public class AccountController {
                                     String image = userData.getString("image").trim();
 
                                     User tempUser = new User(username, email, points, image);
-                                    UserSessionStore userSessionStore = new UserSessionStore(context);
+                                    UserSessionStore userSessionStore = UserSessionStore.getInstance(context);
                                     userSessionStore.storeUserData(tempUser);
                                     userSessionStore.setUserLoggedIn(true);
 

@@ -39,12 +39,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         accountController = new AccountController(LoginActivity.this);
 
-        userStore = new UserSessionStore(this);
+        userStore =  UserSessionStore.getInstance(this);
         etUsername = findViewById(R.id.et_username);
         etPassword = findViewById(R.id.et_password);
         btnSignUp = findViewById(R.id.btn_create_account);
         btnSignUp.setPaintFlags(btnSignUp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        userStore = new UserSessionStore(this);
 
 
     }

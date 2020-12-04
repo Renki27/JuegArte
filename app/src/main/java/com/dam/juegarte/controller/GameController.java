@@ -71,7 +71,7 @@ public class GameController {
                                     gameModes.add(mode);
 
                                 }
-                                GameModesStore gameModesStore = new GameModesStore(context);
+                                GameModesStore gameModesStore = GameModesStore.getInstance(context);
                                 gameModesStore.storeGameModes(gameModes);
 
 
@@ -211,7 +211,7 @@ public class GameController {
                                     achievements.add(achievement);
 
                                 }
-                                AchievementsStore achievementsStore = new AchievementsStore(context);
+                                AchievementsStore achievementsStore = AchievementsStore.getInstance(context);
                                 achievementsStore.storeAchievements(achievements);
 
 

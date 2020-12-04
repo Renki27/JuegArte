@@ -36,8 +36,8 @@ public class UserProfile extends AppCompatActivity implements View.OnClickListen
         tvEmail = findViewById(R.id.tv_email);
         tvPoints = findViewById(R.id.tv_points);
 
-        userStore = new UserSessionStore(this);
-        gameModesStore = new GameModesStore(this);
+        userStore =  UserSessionStore.getInstance(this);
+        gameModesStore =  GameModesStore.getInstance(this);
 
         userData = userStore.getUserData();
         setUserData();

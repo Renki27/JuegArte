@@ -47,7 +47,7 @@ public class ScratchStart extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        gameModesStore = new GameModesStore(getActivity());
+        gameModesStore = GameModesStore.getInstance(getActivity());
         scratch = gameModesStore.getGameModes().get(2);
 
         return inflater.inflate(R.layout.fragment_scratch_start, container, false);
@@ -67,7 +67,7 @@ public class ScratchStart extends Fragment {
         instructions.setText(scratch.getInstructions());
 
 
-        questionsStore = new ScratchQuestionsStore(getActivity());
+        questionsStore =  ScratchQuestionsStore.getInstance(getActivity());
         scratchQuestionsPool = questionsStore.getScratchQuestions();
 
 

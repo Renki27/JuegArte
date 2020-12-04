@@ -20,7 +20,7 @@ public class SplashScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        userStore = new UserSessionStore(this);
+        userStore =  UserSessionStore.getInstance(this);
         loggedIn = userStore.getUserLoggedIn();
 
         /* New Handler to start the Menu-Activity

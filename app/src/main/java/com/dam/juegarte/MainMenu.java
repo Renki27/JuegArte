@@ -67,9 +67,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
 
         gson = new Gson();
-        userStore = new UserSessionStore(this);
-        gameModesStore = new GameModesStore(getApplicationContext());
-        achievementsStore = new AchievementsStore(getApplicationContext());
+        userStore = UserSessionStore.getInstance(this);
+        gameModesStore =  GameModesStore.getInstance(getApplicationContext());
+        achievementsStore = AchievementsStore.getInstance(getApplicationContext());
 
         userStore.checkLogin();
         User userData = userStore.getUserData();
@@ -147,9 +147,9 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         userStore.setUserLoggedIn(false);
         userStore.clearUserData();
         //  gameModesStore.clearGameModes();
-        //   Intent intent = new Intent(this, LoginActivity.class);
-        //   startActivity(intent);
-        //  finish();
+           Intent intent = new Intent(this, LoginActivity.class);
+           startActivity(intent);
+          finish();
     }
 
     @Override

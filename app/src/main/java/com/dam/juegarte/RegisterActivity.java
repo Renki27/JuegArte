@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnSignIn = findViewById(R.id.btn_sign_in);
         btnSignIn.setPaintFlags(btnSignIn.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
-        userStore = new UserSessionStore(this);
+        userStore = UserSessionStore.getInstance(this);
 
 
     }

@@ -81,7 +81,7 @@ public class QuestionController {
 
                                 Log.d("Scratch", scratchQuestions.toString());
 
-                                ScratchQuestionsStore scratchQuestionsStore = new ScratchQuestionsStore(context);
+                                ScratchQuestionsStore scratchQuestionsStore = ScratchQuestionsStore.getInstance(context);
                                 scratchQuestionsStore.storeScratchQuestions(scratchQuestions);
 
 
@@ -157,7 +157,7 @@ public class QuestionController {
 
                                 Log.d("true", trueFalseQuestions.toString());
 
-                                TrueFalseQuestionStore trueFalseQuestionStore = new TrueFalseQuestionStore(context);
+                                TrueFalseQuestionStore trueFalseQuestionStore = TrueFalseQuestionStore.getInstance(context);
                                 trueFalseQuestionStore.storeTrueFalseQuestions(trueFalseQuestions);
 
 
@@ -239,7 +239,7 @@ public class QuestionController {
                                 }
 
                                 Log.d("trivia", triviaQuestions.toString());
-                                TriviaQuestionsStore triviaQuestionsStore = new TriviaQuestionsStore(context);
+                                TriviaQuestionsStore triviaQuestionsStore = TriviaQuestionsStore.getInstance(context);
                                 triviaQuestionsStore.storeTriviaQuestions(triviaQuestions);
 
 

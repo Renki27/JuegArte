@@ -34,7 +34,7 @@ public class GameModeMenu extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_modes);
 
-        gameModesStore = new GameModesStore(getApplicationContext());
+        gameModesStore = GameModesStore.getInstance(getApplicationContext());
         gameModes = gameModesStore.getGameModes();
         // Log.d("GM", gameModes.toString());
 

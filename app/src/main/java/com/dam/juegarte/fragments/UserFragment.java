@@ -59,7 +59,7 @@ public class UserFragment extends Fragment implements View.OnClickListener{
         tvEmail = view.findViewById(R.id.tv_email);
         tvPoints = view.findViewById(R.id.tv_points);
 
-        userStore = new UserSessionStore(getActivity().getApplicationContext());
+        userStore = UserSessionStore.getInstance(getActivity().getApplicationContext());
 
         //para configurar el toolbar
         Toolbar toolbar = view.findViewById(R.id.toolbar);

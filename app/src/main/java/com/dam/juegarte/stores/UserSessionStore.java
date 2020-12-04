@@ -66,9 +66,9 @@ public class UserSessionStore {
     public void clearUserData() {
         editor.clear();
         editor.apply();
-        Intent intent = new Intent(context, LoginActivity.class);
-        context.startActivity(intent);
-        ((MainMenu) context).finish();
+      //  Intent intent = new Intent(context, LoginActivity.class);
+       // context.startActivity(intent);
+       // ((MainMenu) context).finish();
     }
 
     public void checkLogin() {
