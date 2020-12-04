@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -84,6 +85,19 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
         questionController.loadScratchQuestions();
         questionController.loadTriviaQuestions();
         questionController.loadTrueFalseQuestions();
+
+/*
+        Intent intent = getIntent();
+        String username = intent.getStringExtra("username");
+        String email = intent.getStringExtra("email");
+        int points = Integer.parseInt(intent.getStringExtra("points"));
+        String image = intent.getStringExtra("image");
+        User userData = new User(username, email, points, image);
+
+ */
+
+
+
     }
 
     private void setupViewPager() {
@@ -139,6 +153,21 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
            startActivity(intent);
           finish();
     }
+
+    @Override
+    public void onClick(View view) {
+        /*switch (view.getId()) {
+            case R.id.btn_profile:
+                openProfile();
+                break;
+            case R.id.btn_games:
+                selectGameMenu();
+            default:
+                break;
+        }*/
+
+    }
+
     private void selectGameMenu() {
         Intent intent = new Intent(this, GameModeMenu.class);
         startActivity(intent);
@@ -197,12 +226,20 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     @Override
     public void onPause() {
         super.onPause();
-        if (mPlayer.isPlaying()) {
-              mPlayer.stop();
+        try {
+            if ((mPlayer != null) && (mPlayer.isPlaying())) {
+                mPlayer.stop();
+
+            }
+        } catch (Exception e) {
+            Log.d("Error", e.getMessage());
         }
+
     }
 
+/*
     @Override
+<<<<<<< HEAD
     protected void onStop() {
         super.onStop();
         if (mPlayer.isPlaying()) {
@@ -221,7 +258,21 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
 
     @Override
     public void onClick(View view) {
+=======
+    protected void onStart() {
+        super.onStart();
+        if (authenticate() == true) {
 
+        }
     }
+>>>>>>> master
 
+    public boolean authenticate() {
+        return userStore.getUserLoggedIn();
+    }
+<<<<<<< HEAD
+
+=======
+*/
+>>>>>>> master
 }
