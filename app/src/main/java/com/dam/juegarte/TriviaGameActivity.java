@@ -149,7 +149,7 @@ public class TriviaGameActivity extends AppCompatActivity {
     }
 
     public void recall() {
-        if (counter < triviaQuestionsPool.size()) {
+        if (counter < 5) {
             setQuestion(triviaQuestionsPool.get(counter));
         } else {
             //Toast.makeText(getActivity(), "Your total score is: " + totalScore, Toast.LENGTH_SHORT).show();
