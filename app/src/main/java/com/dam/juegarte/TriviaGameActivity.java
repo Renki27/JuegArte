@@ -10,8 +10,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.dam.juegarte.controller.AccountController;
+import com.dam.juegarte.controller.GameController;
 import com.dam.juegarte.controller.QuestionController;
 import com.dam.juegarte.stores.TriviaQuestionsStore;
+import com.dam.juegarte.stores.UserSessionStore;
+import com.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog;
 import com.shreyaspatil.MaterialDialog.MaterialDialog;
 import com.shreyaspatil.MaterialDialog.interfaces.DialogInterface;
 
@@ -19,6 +23,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
+
 
 public class TriviaGameActivity extends AppCompatActivity {
 
@@ -38,6 +43,10 @@ public class TriviaGameActivity extends AppCompatActivity {
     private QuestionController questionController;
     private TriviaQuestionsStore questionStore;
     private ArrayList<TriviaQuestion> triviaQuestionsPool;
+
+    UserSessionStore userStore;
+    GameController gameController;
+    AccountController accountController;
 
     private static final String IMAGES_URL = "http://10.0.2.2/juegarte-API";
 
@@ -67,6 +76,10 @@ public class TriviaGameActivity extends AppCompatActivity {
         triviaQuestionsPool = questionStore.getTriviaQuestions();
 
 //        Log.d("trivia: ", triviaQuestionsPool.toString());
+
+        userStore = new UserSessionStore(this);
+        gameController = new GameController(this);
+        accountController = new AccountController(this);
 
         if (triviaQuestionsPool != null){
             Collections.shuffle(triviaQuestionsPool);
@@ -235,10 +248,27 @@ public class TriviaGameActivity extends AppCompatActivity {
 
             public void onFinish() {
                 t = -1;
-                dialog.setTitleText(title)
-                        .setContentText(message)
-                        .setConfirmText(getString(R.string.dialog_ok))
-                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
+                dialog.dismiss();
+
+                BottomSheetMaterialDialog mDialog = new BottomSheetMaterialDialog.Builder(TriviaGameActivity.this)
+                        .setTitle(title)
+                        .setMessage(message)
+                        .setCancelable(false)
+                        .setAnimation(R.raw.fireworks_animation)
+                        .setNeutralButton(getString(R.string.exit), new BottomSheetMaterialDialog.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int which) {
+                                dialogInterface.dismiss();
+                                finish();
+                            }
+                        })
+                        .build();
+
+                // Show Dialog
+                mDialog.show();
+                saveGameData(2, userStore.getUserData().username, totalScore);
+                int points = userStore.getUserData().getPoints() + totalScore;
+                updatePoints(userStore.getUserData().username, points);
             }
         }.start();
 
@@ -249,6 +279,16 @@ public class TriviaGameActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void saveGameData(int idGame, String username, int obtainedPoints) {
+        gameController.saveGameData(idGame, username, obtainedPoints);
+
+    }
+
+    public void updatePoints(String username, int points) {
+        accountController.updatePoints(username, points);
+        userStore.updatePoints(points);
     }
 
     @Override

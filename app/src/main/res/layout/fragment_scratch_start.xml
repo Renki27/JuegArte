@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/tv_scratch_title"
-            android:text="@string/raspaditas"
+            android:text="Raspaditas"
             android:textSize="40sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
 
         <TextView
             android:id="@+id/tv_scratch_instructions"
-            android:text="@string/scratch_instructions"
+            android:text="Raspa el área para responder la pregunta solicitada"
             android:textSize="15sp"
             android:textColor="@color/white"
             android:layout_marginHorizontal="40dp"

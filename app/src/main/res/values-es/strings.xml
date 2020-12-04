@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JuegArte</string>
     <string name="splashScreen">JuegArte</string>
@@ -35,7 +36,7 @@
 
     <string name="question_info">Información</string>
     <string name="exit">Salir</string>
-    <string name="game_exit_confirmation">Cualquier progreso realizado no será salvado, desea continuar?</string>
+    <string name="game_exit_confirmation">Cualquier progresp realizado no será salvado, desea continuar?</string>
     <string name="loading">Cargando...</string>
     <string name="saving_data">Guardando Datos...</string>
 
@@ -65,5 +66,4 @@
     <string name="about_us">Sobre Nosotros</string>
     <string name="music">Música</string>
     <string name="achievements_no_loaded">Logros no Cargados</string>
-
 </resources>
