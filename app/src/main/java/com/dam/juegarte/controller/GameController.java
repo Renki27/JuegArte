@@ -228,7 +228,7 @@ public class GameController {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(context, R.string.achievementsnoloaded, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, R.string.achievements_no_loaded, Toast.LENGTH_SHORT).show();
 
                         NetworkResponse response = error.networkResponse;
                         String errorMsg = "";
