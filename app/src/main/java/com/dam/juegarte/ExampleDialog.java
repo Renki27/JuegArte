@@ -16,8 +16,7 @@ public class ExampleDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.about_us)
-                .setMessage("JuegArte 2020")
-                .setMessage("Git Repo: https://github.com/Renki27/JuegArte")
+                .setMessage("JuegArte 2020" + "\n" + "Git Repo: https://github.com/Renki27/JuegArte")
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {

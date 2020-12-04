@@ -21,7 +21,7 @@ public class SettingsFragment extends Fragment {
     private String mParam2;
     private Switch switchSoundEff;
     private Switch switchMusic;
-    private boolean playing = true;
+    public boolean playing = true;
     private Button btnHelp;
     private Button btnAbout;
 
@@ -78,7 +78,7 @@ public class SettingsFragment extends Fragment {
         btnHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Uri uri = Uri.parse("http://www.google.com/");
+                Uri uri = Uri.parse("http://https://support.google.com/googleplay/?hl=es#topic=3364260/");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

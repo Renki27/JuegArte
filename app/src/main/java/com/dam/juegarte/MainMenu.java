@@ -195,7 +195,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
         if (mPlayer.isPlaying()) {
               mPlayer.stop();
@@ -203,7 +203,25 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if (mPlayer.isPlaying()) {
+            mPlayer.stop();
+        }
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if (mPlayer.isPlaying()) {
+            mPlayer.stop();
+        }
+    }
+
+    @Override
     public void onClick(View view) {
 
     }
+
 }
